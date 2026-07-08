@@ -2,7 +2,8 @@ rules_version = '2';
 
 service firebase.storage {
   match /b/{bucket}/o {
-    // Este sistema de matrícula não usa Storage por enquanto.
+    // Este sistema CETEC não usa Storage por enquanto.
+    // Mantido fechado por segurança.
     match /{allPaths=**} {
       allow read, write: if false;
     }

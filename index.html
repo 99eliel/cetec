@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#005a9c">
+  <title>CETEC - Menu</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="centralizado">
+  <div class="header-home">
+    <div class="logo-cetec">CT</div>
+    <h1>CETEC</h1>
+    <p>Sistema de Matrículas</p>
+    <a href="dashboard.html" class="header-link">Visualizar Dashboard 📈</a><br>
+    <button id="installButton" class="install-btn oculto">Instalar aplicativo</button>
+  </div>
+
+  <div class="container-menu">
+    <div class="card-menu" id="c-mat">
+      <span class="icon">📝</span>
+      <h2>Matrícula</h2>
+      <p>Novo aluno</p>
+      <button>Acessar</button>
+    </div>
+
+    <div class="card-menu" id="c-con">
+      <span class="icon">🔍</span>
+      <h2>Consulta</h2>
+      <p>Buscar, chamar e editar</p>
+      <button>Acessar</button>
+    </div>
+
+    <div class="card-menu" id="c-cur">
+      <span class="icon">📚</span>
+      <h2>Cursos</h2>
+      <p>Gerenciar</p>
+      <button>Acessar</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import "./pwa.js";
+
+    document.getElementById("c-mat").onclick = () => window.location.href = "matricula.html";
+    document.getElementById("c-con").onclick = () => window.location.href = "consulta.html";
+    document.getElementById("c-cur").onclick = () => window.location.href = "cursos.html";
+  </script>
+</body>
+</html>

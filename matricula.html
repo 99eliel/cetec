@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#005a9c">
+  <title>Matrícula - CETEC</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+  <form id="form" class="container form-container">
+    <div class="header">
+      <h2 id="titulo">Nova Matrícula</h2>
+      <a href="consulta.html" class="btn-voltar">Consulta</a>
+    </div>
+
+    <label for="data_matricula">Data da Matrícula:</label>
+    <input type="date" name="data_matricula" id="data_matricula" required>
+
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" required autocomplete="name">
+
+    <label for="cpf">CPF:</label>
+    <input type="text" name="cpf" id="cpf" required inputmode="numeric" placeholder="000.000.000-00">
+
+    <label for="nascimento">Nascimento:</label>
+    <input type="date" name="nascimento" id="nascimento">
+
+    <label for="telefone">Telefone:</label>
+    <input type="tel" name="telefone" id="telefone" inputmode="tel" placeholder="(64) 99999-9999">
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" name="endereco" id="endereco" autocomplete="street-address">
+
+    <label for="curso">Curso:</label>
+    <select name="curso" id="curso" required>
+      <option>Carregando...</option>
+    </select>
+
+    <label for="turno">Turno:</label>
+    <select name="turno" id="turno" required>
+      <option value="Manhã">Manhã</option>
+      <option value="Tarde">Tarde</option>
+      <option value="Noite">Noite</option>
+    </select>
+
+    <label for="status">Status:</label>
+    <select name="status" id="status" required>
+      <option value="Em Espera">Em Espera</option>
+      <option value="Chamado">Chamado</option>
+      <option value="Matriculado">Matriculado</option>
+      <option value="Em Curso">Em Curso</option>
+      <option value="Concluído">Concluído</option>
+      <option value="Desistente">Desistente</option>
+      <option value="Cancelado">Cancelado</option>
+    </select>
+
+    <div class="btns">
+      <a href="index.html" class="btn-cancelar">Voltar</a>
+      <button type="submit" class="btn-salvar" id="btnSalvar">Salvar</button>
+    </div>
+  </form>
+
+  <script type="module">
+    import "./api.js";
+    import "./pwa.js";
+
+    const id = new URLSearchParams(window.location.search).get("id");
+    const selCurso = document.getElementById("curso");
+    const form = document.getElementById("form");
+    const btnSalvar = document.getElementById("btnSalvar");
+
+    function aplicarMascaraCPF(valor) {
+      return valor
+        .replace(/\D/g, "")
+        .slice(0, 11)
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    }
+
+    function aplicarMascaraTelefone(valor) {
+      const n = valor.replace(/\D/g, "").slice(0, 11);
+      if (n.length <= 10) {
+        return n.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{4})(\d)/, "$1-$2");
+      }
+      return n.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d)/, "$1-$2");
+    }
+
+    document.getElementById("cpf").addEventListener("input", (e) => {
+      e.target.value = aplicarMascaraCPF(e.target.value);
+    });
+
+    document.getElementById("telefone").addEventListener("input", (e) => {
+      e.target.value = aplicarMascaraTelefone(e.target.value);
+    });
+
+    function hojeISO() {
+      const hoje = new Date();
+      hoje.setMinutes(hoje.getMinutes() - hoje.getTimezoneOffset());
+      return hoje.toISOString().slice(0, 10);
+    }
+
+    async function carregarCursos() {
+      const resC = await window.api.getCursos();
+      selCurso.innerHTML = '<option value="">Selecione...</option>';
+      if (resC.success && resC.data.length) {
+        resC.data.forEach((c) => selCurso.add(new Option(c.nome, c.nome)));
+      } else {
+        selCurso.innerHTML = '<option value="">Cadastre um curso primeiro</option>';
+      }
+    }
+
+    async function init() {
+      document.getElementById("data_matricula").value = hojeISO();
+      await carregarCursos();
+
+      if (id) {
+        document.getElementById("titulo").innerText = "Editar Matrícula";
+        const resA = await window.api.getAlunoById(id);
+        if (resA.success && resA.data) {
+          const a = resA.data;
+          ["nome", "cpf", "nascimento", "telefone", "endereco", "turno", "status", "curso"].forEach((campo) => {
+            if (document.getElementById(campo)) document.getElementById(campo).value = a[campo] || "";
+          });
+          if (a.data_matricula) document.getElementById("data_matricula").value = String(a.data_matricula).split(" ")[0];
+        } else {
+          await window.api.showMessage(resA.message || "Aluno não encontrado.");
+          window.location.href = "consulta.html";
+        }
+      }
+    }
+
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      btnSalvar.disabled = true;
+      btnSalvar.textContent = "Salvando...";
+
+      const dados = Object.fromEntries(new FormData(e.target));
+      const res = id ? await window.api.updateAluno(id, dados) : await window.api.salvarMatricula(dados);
+
+      await window.api.showMessage(res.message);
+      btnSalvar.disabled = false;
+      btnSalvar.textContent = "Salvar";
+
+      if (res.success) window.location.href = "consulta.html";
+    };
+
+    init();
+  </script>
+</body>
+</html>

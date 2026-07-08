@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#005a9c">
+  <title>Cursos - CETEC</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+  <div class="container form-container">
+    <div class="header">
+      <h2>Gerenciar Cursos</h2>
+      <a href="index.html" class="btn-voltar">Voltar</a>
+    </div>
+
+    <div class="add-box">
+      <input type="text" id="novo" placeholder="Nome do curso...">
+      <button class="btn-add" id="btnAdd">Adicionar</button>
+    </div>
+
+    <ul id="lista" class="lista"><li>Carregando...</li></ul>
+  </div>
+
+  <script type="module">
+    import "./api.js";
+    import "./pwa.js";
+
+    const lista = document.getElementById("lista");
+    const novo = document.getElementById("novo");
+    const btnAdd = document.getElementById("btnAdd");
+
+    async function load() {
+      const res = await window.api.getCursos();
+      lista.innerHTML = "";
+      if (!res.success) {
+        lista.innerHTML = `<li>${res.message || "Erro ao carregar cursos."}</li>`;
+        return;
+      }
+      if (!res.data.length) {
+        lista.innerHTML = "<li>Nenhum curso cadastrado.</li>";
+        return;
+      }
+
+      res.data.forEach((c) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<span>${c.nome}</span> <button class="btn btn-del" data-id="${c.id}">Excluir</button>`;
+        lista.appendChild(li);
+      });
+    }
+
+    async function add() {
+      const nome = novo.value.trim();
+      if (!nome) return;
+      btnAdd.disabled = true;
+      btnAdd.textContent = "Adicionando...";
+      const res = await window.api.addCurso(nome);
+      novo.value = "";
+      await window.api.showMessage(res.message);
+      btnAdd.disabled = false;
+      btnAdd.textContent = "Adicionar";
+      if (res.success) load();
+    }
+
+    btnAdd.addEventListener("click", add);
+    novo.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") add();
+    });
+
+    lista.addEventListener("click", async (event) => {
+      const botao = event.target.closest("button[data-id]");
+      if (!botao) return;
+      if (confirm("Excluir este curso?")) {
+        const res = await window.api.deleteCurso(botao.dataset.id);
+        await window.api.showMessage(res.message);
+        if (res.success) load();
+      }
+    });
+
+    load();
+  </script>
+</body>
+</html>

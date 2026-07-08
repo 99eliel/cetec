@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Importador CETEC para Firebase</title>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <style>
+    body{font-family:Arial,sans-serif;background:#eef3f8;margin:0;padding:20px;color:#1f2937}
+    .box{max-width:900px;margin:0 auto;background:white;padding:24px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    h1{margin-top:0;color:#005a9c} .alert{background:#fff3cd;border:1px solid #ffe08a;padding:12px;border-radius:8px;margin:12px 0}
+    .ok{background:#d1e7dd;border-color:#badbcc}.err{background:#f8d7da;border-color:#f5c2c7}
+    button{background:#005a9c;color:#fff;border:0;border-radius:8px;padding:12px 16px;font-weight:700;cursor:pointer;margin-top:12px}
+    button:disabled{background:#9ca3af;cursor:not-allowed} input{padding:12px;border:1px solid #cbd5e1;border-radius:8px;width:100%;box-sizing:border-box}
+    pre{background:#0f172a;color:#e5e7eb;border-radius:8px;padding:12px;white-space:pre-wrap;max-height:320px;overflow:auto}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}.card{background:#f8fafc;padding:14px;border-radius:10px;text-align:center}.num{font-size:30px;font-weight:800;color:#005a9c}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Importador CETEC → Firebase</h1>
+    <p>Use este arquivo para enviar os dados do banco antigo SQLite para o Firestore do projeto <strong>cetec-3a52c</strong>.</p>
+    <div class="alert"><strong>Importante:</strong> selecione o arquivo <code>dados-cetec-firestore.json</code>. Não é necessário subir esse JSON no GitHub público.</div>
+    <input type="file" id="arquivo" accept=".json,application/json" />
+    <div class="grid">
+      <div class="card"><div class="num" id="qtdAlunos">0</div><div>alunos no arquivo</div></div>
+      <div class="card"><div class="num" id="qtdCursos">0</div><div>cursos no arquivo</div></div>
+      <div class="card"><div class="num" id="qtdPendencias">0</div><div>pendências marcadas</div></div>
+    </div>
+    <button id="btnImportar" disabled>Importar para o Firebase</button>
+    <pre id="log">Selecione o JSON para começar.</pre>
+  </div>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBTWt0dnSKlVi_W66ynRo6tC7PdNRUMXnM",
+  authDomain: "cetec-3a52c.firebaseapp.com",
+  projectId: "cetec-3a52c",
+  storageBucket: "cetec-3a52c.firebasestorage.app",
+  messagingSenderId: "14887050709",
+  appId: "1:14887050709:web:12ff768563c1229481315c",
+  measurementId: "G-63YYK83QEY"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+let dados = null;
+const logEl = document.getElementById('log');
+function log(msg){ logEl.textContent += "\n" + msg; logEl.scrollTop = logEl.scrollHeight; }
+function limparTimestamps(obj){
+  const copia = {...obj};
+  delete copia.idFirestore;
+  if(copia.criadoEm === 'IMPORT_SERVER_TIMESTAMP') copia.criadoEm = firebase.firestore.FieldValue.serverTimestamp();
+  if(copia.atualizadoEm === 'IMPORT_SERVER_TIMESTAMP') copia.atualizadoEm = firebase.firestore.FieldValue.serverTimestamp();
+  return copia;
+}
+document.getElementById('arquivo').addEventListener('change', async (e)=>{
+  const file = e.target.files[0]; if(!file) return;
+  try{
+    dados = JSON.parse(await file.text());
+    if(!Array.isArray(dados.alunos) || !Array.isArray(dados.cursos)) throw new Error('JSON fora do padrão esperado.');
+    document.getElementById('qtdAlunos').textContent = dados.alunos.length;
+    document.getElementById('qtdCursos').textContent = dados.cursos.length;
+    document.getElementById('qtdPendencias').textContent = dados.alunos.filter(a => a.observacoesImportacao).length;
+    document.getElementById('btnImportar').disabled = false;
+    logEl.textContent = `Arquivo carregado: ${dados.alunos.length} alunos e ${dados.cursos.length} cursos.`;
+  }catch(err){
+    dados = null; document.getElementById('btnImportar').disabled = true; logEl.textContent = 'Erro: ' + err.message;
+  }
+});
+async function gravarEmLotes(itens, colecao, nome){
+  let total = 0;
+  for(let i=0; i<itens.length; i+=400){
+    const lote = db.batch();
+    itens.slice(i, i+400).forEach(item => {
+      const id = item.idFirestore || db.collection(colecao).doc().id;
+      lote.set(db.collection(colecao).doc(id), limparTimestamps(item), { merge: true });
+    });
+    await lote.commit();
+    total += Math.min(400, itens.length - i);
+    log(`${nome}: ${total}/${itens.length} importados.`);
+  }
+}
+document.getElementById('btnImportar').addEventListener('click', async ()=>{
+  if(!dados) return;
+  if(!confirm('Confirmar importação para o Firebase? Se já existir documento com o mesmo ID, ele será atualizado.')) return;
+  const btn = document.getElementById('btnImportar'); btn.disabled = true;
+  try{
+    log('Iniciando importação...');
+    await gravarEmLotes(dados.cursos, 'cursos', 'Cursos');
+    await gravarEmLotes(dados.alunos, 'alunos', 'Alunos');
+    log('✅ Importação concluída. Abra o sistema CETEC e confira a Consulta/Dashboard.');
+  }catch(err){
+    console.error(err); log('❌ Erro na importação: ' + err.message);
+    alert('Erro na importação: ' + err.message);
+  }finally{ btn.disabled = false; }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+ATENÇÃO
+
+Suba no GitHub somente os arquivos deste pacote.
+Não suba dados-cetec-firestore.json, alunos-conferencia.csv, pendencias-conferencia.csv ou qualquer arquivo com CPF/telefone/endereço.
+
+Para importar online:
+1. Publique este sistema no GitHub Pages.
+2. Abra a página importador.html no navegador.
+3. Selecione o arquivo dados-cetec-firestore.json salvo no seu computador.
+4. Importe para o Firebase.
+5. Depois apague importador.html do GitHub ou deixe fora do ar.
