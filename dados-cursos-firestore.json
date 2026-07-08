@@ -1,0 +1,38 @@
+[
+  {
+    "idFirestore": "curso_informatica",
+    "idAntigo": 1,
+    "nome": "Informática",
+    "nomeBusca": "informatica",
+    "origem": "SQLite CETEC",
+    "criadoEm": "IMPORT_SERVER_TIMESTAMP",
+    "atualizadoEm": "IMPORT_SERVER_TIMESTAMP"
+  },
+  {
+    "idFirestore": "curso_costura",
+    "idAntigo": 2,
+    "nome": "Costura",
+    "nomeBusca": "costura",
+    "origem": "SQLite CETEC",
+    "criadoEm": "IMPORT_SERVER_TIMESTAMP",
+    "atualizadoEm": "IMPORT_SERVER_TIMESTAMP"
+  },
+  {
+    "idFirestore": "curso_modelagem",
+    "idAntigo": 3,
+    "nome": "Modelagem",
+    "nomeBusca": "modelagem",
+    "origem": "SQLite CETEC",
+    "criadoEm": "IMPORT_SERVER_TIMESTAMP",
+    "atualizadoEm": "IMPORT_SERVER_TIMESTAMP"
+  },
+  {
+    "idFirestore": "curso_informatica-intermediario",
+    "idAntigo": 4,
+    "nome": "Informática Intermediário",
+    "nomeBusca": "informatica intermediario",
+    "origem": "SQLite CETEC",
+    "criadoEm": "IMPORT_SERVER_TIMESTAMP",
+    "atualizadoEm": "IMPORT_SERVER_TIMESTAMP"
+  }
+]

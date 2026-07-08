@@ -1,0 +1,126 @@
+﻿idFirestore;idAntigo;nome;cpf;cpfLimpo;cpfFormatoValido;nascimento;telefone;telefoneLimpo;endereco;curso;turno;status;data_matricula;observacoesImportacao
+aluno_3;3;Paulo Vitor Candido Rosa;001.925.961-10;00192596110;True;1985-11-15;(64) 99305-5994;64993055994;Rua Atilio Jose de Faria, Q. 04, L. 14, Setor Silvio Manoel;Informática;Noite;Desistente;2026-01-05;
+aluno_4;4;Ana Cecilia Vieira Santos;105.884.731-70;10588473170;True;2009-02-21;(64) 8133-4969;6481334969;Rua Rio Grande Do Sul, Q. 244, L. Setor Central;Informática;Noite;Desistente;2026-01-05;
+aluno_5;5;Maria Fernanda Vieira Santos;105.884.551-99;10588455199;True;2007-09-05;(64) 8133-4969;6481334969;Rua rio grande do sul, Q. 244, L.,setor central;Informática;Noite;Desistente;2026-01-05;corrigido de 82007-09-05 para 2007-09-05
+aluno_6;6;Leidiane de J. P. Rosa;999.343.291-15;99934329115;True;1983-03-28;(64) 99229-2667;64992292667;Rua 3, Q. 8, L, 16, Jardim Frei Walter;Informática;Manhã;Desistente;2026-01-05;
+aluno_7;7;Joao Gabriel Pereira Aguiar;074.812.881-60;07481288160;True;2010-01-21;(62) 99251-7745;62992517745;Rua 3, Q. 6, L. 16, Jardim Frei Walter;Informática;Noite;Desistente;2026-01-05;
+aluno_8;8;Erick Ferreira de Moura;108.071.051-55;10807105155;True;2012-09-14;(64) 99282-4148;64992824148;Av. A, Q 0368, L. 10, Dergo;Informática;Noite;Desistente;2026-01-05;
+aluno_9;9;Guilherme Fonseca Barroso;751.678.931-10;75167893110;True;2014-06-08;(64) 99282-4148;64992824148;Rua Alagoas, Q. 17, L. 2, Setor dergo;Informática;Noite;Desistente;2026-01-05;
+aluno_10;10;Kamila Lima Mota Ferreira;707.939.661-16;70793966116;True;2011-05-20;(64) 99607-7788;64996077788;Av. Alamedas Dos Buritis, Q. 09, Setor Clube;Informática;Noite;Desistente;2026-01-05;
+aluno_11;11;Vanusa Azarias Mota;015.990.811-64;01599081164;True;1985-07-30;(64) 99607-7788;64996077788;Av. Alamedas dos Buritis, Q. 09, |Setor Clube;Informática;Noite;Desistente;2026-01-05;
+aluno_12;12;Jessica Coraci Caetano Texeira;039.726.881-56;03972688156;True;1991-09-06;(64) 99283-9912;64992839912;Rua do Girassol, Q.21, L. 2, Santorini 1;Informática;Noite;Desistente;2026-01-05;
+aluno_13;13;Ismariely Almeida da Silveira;095.249.781-10;09524978110;True;;(64) 99244-7204;64992447204;Rua F, Q. 12, L. 13, Jardim Frei Walter;Informática;Tarde;Chamado;2026-01-05;data de nascimento inválida/placeholder: 0001-01-01 | removido 0 após DDD
+aluno_14;14;Gustavo Henrique Mendes Prado;066999329183;066999329183;False;2014-04-07;(64) 99283-1993;64992831993;Av. H, Q. Y, L. 08, Setor Boa Vista;Informática;Noite;Desistente;2026-01-05;CPF com formato suspeito: 066999329183
+aluno_15;15;Rafael Mendes de Araujo;069.604.541-90;06960454190;True;2013-09-21;(64) 99283-1993;64992831993;Av. H, Q. Y, L.08, Setor Boa Vista;Informática;Tarde;Concluído;2026-01-05;
+aluno_16;16;Gabriela Ramo do Prado;073.107.101-57;07310710157;True;2014-11-18;(64) 99287-7770;64992877770;Av. H, Q. Y, L. 08, Setor Boa Vista;Informática;Tarde;Concluído;2026-01-05;
+aluno_17;17;Romilda Caetano do Carmo;031.670.431-80;03167043180;True;1979-05-25;(64) 99286-1681;64992861681;Av. Manoel Patrocinio, Q. 17, L.5, Jardim Ipe;Informática;Manhã;Concluído;2026-01-05;
+aluno_18;18;Pietro Luige Lavorato Araujo Reis;066.651.211-60;06665121160;True;2013-09-30;(62) 99368-4940;62993684940;Rua 3, Q. 2, L. 08, Vila Paraiso;Informática;Tarde;Concluído;2026-01-05;
+aluno_19;19;Gabriel Rufino de Oiveira;188.649.291-03;18864929103;True;2013-12-10;(64) 99306-2067;64993062067;Rua Romeu Parreira, Q. 5A, L. 07, Casa 07 Silvio Manoel;Costura;Noite;Em Espera;2026-01-05;
+aluno_20;20;Wallef Douglas de Souza;057.643.671-23;05764367123;True;1995-10-19;(64) 99227-4334;64992274334;Avenida E Qd18 Lt 08 Setor Dergo;Costura;Noite;Chamado;2026-01-06;
+aluno_21;21;Fernanda Ferreira da Silva;703.877.891-97;70387789197;True;1997-02-19;(64) 99227-4334;64992274334;Avenida E, Qd 18 Lt 09 Nº 04 Vila Brasil;Modelagem;Noite;Em Espera;2026-01-06;
+aluno_22;22;Adriana Bispa de Almeida;025.953.211-88;02595321188;True;1985-09-12;(63) 9996-0163;6399960163;Rua 1 Qd 9 Lt 12 A Boa Vista;Informática;Tarde;Chamado;2026-01-09;
+aluno_23;23;Maria Eduarda Dias da Rocha;714.011.491-97;71401149197;True;2007-10-08;(64) 99295-2918;64992952918;Avenida Americano do Brasil Qd 330 L 6 Nº 38 Centro;Costura;Noite;Chamado;2026-01-13;
+aluno_24;24;Adriana Bento da Silva Belchior;916.158.361-87;91615836187;True;1977-05-09;(64) 99295-2918;64992952918;Avenida Americano do Brasil Qd 330 L 6 Nº 38 Centro;Costura;Noite;Chamado;2026-01-13;
+aluno_25;25;Helena Alves Lopes Guimarães;275.276.111-20;27527611120;True;1961-01-03;(64) 99907-7080;64999077080;Rua GoianiaNº 349 Centro;Informática;Manhã;Chamado;2026-01-13;
+aluno_27;27;Romiere Varanda de Freitas;032.964.341-00;03296434100;True;1990-10-04;(62) 99471-6071;62994716071;Av. comercial n 369 Centro;Informática;Manhã;Chamado;2026-01-14;
+aluno_28;28;Angela Cristina Bispo de Oliveira;476.139.631-87;47613963187;True;1971-03-13;(62) 98588-9474;62985889474;Rua Peru, Q. 4, L. 4, Residencial Bela Vista;Informática;Manhã;Chamado;2026-01-14;
+aluno_29;29;Maria Aparecida de Souza Silva;802.783.881-91;80278388191;True;1976-07-20;(64) 99319-2691;64993192691;Rua Jacaranda, Q. 12, L. 4, Jadim Ipe;Informática;Manhã;Chamado;2026-01-14;
+aluno_30;30;Davi Rufino de Oliveia;118.649.441-70;11864944170;True;2014-11-02;(64) 99306-2067;64993062067;Rua Romeu Parreira, Q. 5a, L. 7, Casa 07, Setor Silvio Manoel;Informática;Manhã;Concluído;2026-01-14;
+aluno_31;31;Kassia Karen da Conceiçao de Moura;713.994.701-60;71399470160;True;;(64) 99299-4842;64992994842;RuaMorrinhos, Q. 352, L. 6, Setor Central;Informática;Noite;Em Curso;2026-01-15;data de nascimento inválida/placeholder: 0001-01-01
+aluno_32;32;Antonio Jose de Oliveira;601.456.681-34;60145668134;True;1972-03-27;(64) 99259-0333;64992590333;Rua LBv, 1001, Setor Paraiso;Informática;Noite;Desistente;2026-01-15;
+aluno_33;33;Adriana Marques Costa;006.243.411-00;00624341100;True;;(64) 99229-7363;64992297363;Rua Juvelino Gomes, Q. 1, L. $, Setor Silvio Manoel;Informática;Manhã;Chamado;2026-01-16;
+aluno_34;34;Adriana Marques Costa;0062431100;0062431100;False;;(64) 99229-7363;64992297363;Rua Juvelino Gomes, Q. 1, L. 4, Setor, Silvio Manoel;Modelagem;Noite;Concluído;2026-01-16;CPF com formato suspeito: 0062431100
+aluno_35;35;Arthur Silverio de Castro;088.580.051-63;08858005163;True;2017-01-24;(64) 99245-4701;64992454701;Rua Alagoas Nº 615 Centro;Informática Intermediário;Tarde;Chamado;2026-01-19;
+aluno_36;36;Heitor Silveira de Castro;088.579.681-03;08857968103;True;2017-01-24;(64) 99245-4701;64992454701;Rua Alagoas Nº 615 Centro;Informática;Tarde;Concluído;2026-01-19;
+aluno_37;37;Ana Vitória Rezende Oliveira;088.579.291-24;08857929124;True;2017-01-24;(64) 99245-4701;64992454701;Rua Alagoas nº 615 Centro;Informática;Tarde;Chamado;2026-01-19;
+aluno_38;38;Pedro Henrique Faloni Fretas;071117064170;071117064170;False;2014-05-13;(64) 98403-8782;64984038782;Avenida B, Qd 300 Lt 9 Dergo;Informática;Tarde;Chamado;2026-01-21;CPF com formato suspeito: 071117064170
+aluno_39;39;Maria Fernanda Faloni Freitas;065.646.021-03;06564602103;True;2012-01-23;(64) 68403-8782;64684038782;Avenida B Qd 300 Lt 9 Dergo;Informática;Tarde;Desistente;2026-01-21;
+aluno_40;40;Renata Cavalcante de Jesus;026.739.901-43;02673990143;True;;(64) 99341-5954;64993415954;Av. Alameda Joana Alves de Lima, Q. 18, L. 17 Santorine 1;Modelagem;Manhã;Em Espera;2026-01-20;
+aluno_41;41;Jhenifer Barcelos Souza;036.970.271-90;03697027190;True;2023-09-24;(64) 98115-8015;64981158015;Avenida Comercial, Q. 4, L. 12, setor clube;Informática;Noite;Em Curso;2026-01-22;
+aluno_42;42;Suely da Costa Gomes;991.152.471-04;99115247104;True;1981-01-01;(64) 99206-4696;64992064696;Avenida Joaquim Pires Nº 936 Centro;Costura;Noite;Chamado;2026-01-23;
+aluno_43;43;Joao Felipe Mesquita da Silva;000000000000;000000000000;False;2011-02-08;(64) 98431-7788;64984317788;Fazenda Sao Bento;Informática;Noite;Desistente;2026-02-02;CPF com formato suspeito: 000000000000 | DDD 64 adicionado
+aluno_44;44;Joao Eduardo Mesquita da Silva;715.418.781-67;71541878167;True;2008-08-11;(64) 98431-7788;64984317788;Fazenda Sao bento;Informática;Noite;Desistente;2026-02-02;DDD 64 adicionado
+aluno_45;45;Joao Vitor Rodrigues dos Santos;104.855.411-22;10485541122;True;2009-05-26;(64) 98125-1296;64981251296;Rua 09, Q. 5., L. 10. Vila Paraiso;Modelagem;Noite;Em Espera;2025-08-27;
+aluno_46;46;Nilva Venancia Soares Raw;635.657.221-34;63565722134;True;1996-07-10;(64) 99983-7246;64999837246;Rua Ac, Q. 7, L. 7, Vila Paraiso;Modelagem;Noite;Em Espera;2025-08-06;
+aluno_47;47;Jessica Rosa de Abreu;039.863.681-83;03986368183;True;1993-06-13;(62) 99298-7372;62992987372;Av. Comercial, Q. 11, L. 3, setor Clube;Modelagem;Noite;Em Espera;2025-08-01;
+aluno_48;48;Elaine Aparecida Silva de Menezes;063.702.881-36;06370288136;True;2008-03-23;(64) 99286-4178;64992864178;Av. onofre de Andrade, L. 18, Q. 7, Setor clube;Modelagem;Tarde;Em Espera;2025-12-15;
+aluno_49;49;Leidiany Silva de Menezes;063.702.941-01;06370294101;True;2003-05-12;(64) 99322-2510;64993222510;Av. Onofre de andrade, L 18, Q. 07. Setor Clube;Modelagem;Noite;Em Espera;2025-12-15;
+aluno_50;50;Fernanda Cilsa da Silva;099.089.101-67;09908910167;True;1977-11-07;(64) 99347-0227;64993470227;rua Alagoas N 379 Centro;Modelagem;Noite;Concluído;2025-11-18;
+aluno_51;51;Valdirene Teixeira de Moura;835.838.741-53;83583874153;True;1970-11-12;(64) 99282-4148;64992824148;av. a, Q 368, L 10, Setor dergo;Modelagem;Noite;Em Espera;2025-10-27;
+aluno_52;52;Maria Rita Xavier Silva;101.923.191-24;10192319124;True;2009-02-21;;;Av. rui Barbosa n 492 Centro;Informática;Noite;Desistente;2026-02-05;telefone vazio ou placeholder
+aluno_53;53;Rosa Maria de Sousa;546.868.811-53;54686881153;True;1997-08-24;;;av Ru Barbosan 492 centro;Informática;Noite;Desistente;2026-02-05;telefone vazio ou placeholder
+aluno_54;54;Maria Eluiza da Silva Marques;116.209.501-19;11620950119;True;2007-11-15;(64) 99265-0678;64992650678;Rua 9, Q. 4, L. A. Boa vista;Informática;Noite;Concluído;2026-02-05;
+aluno_55;55;Widey Rodrigues Pacheco;084.826.611-86;08482661186;True;2007-11-09;(64) 98113-5339;64981135339;Rua 9, Q. 4 L. A, Boa vista;Informática;Noite;Desistente;2026-02-05;
+aluno_56;56;Carlos Daniel;000000000;000000000;False;;;;000000000;Informática;Noite;Concluído;2026-02-05;CPF com formato suspeito: 000000000 | data de nascimento inválida/placeholder: 0001-01-01 | telefone vazio ou placeholder
+aluno_57;57;Thaemilly;000.000.000-00;00000000000;False;;;;Rua 9, Qd 4, lL. A, Boa Vista;Informática;Noite;Concluído;2026-02-05;CPF com formato suspeito: 00000000000 | telefone vazio ou placeholder
+aluno_58;58;Dejanira Borges Barbosa de Oliveira;901.591.601-20;90159160120;True;1976-09-20;(62) 99172-1321;62991721321;Rua Rio Grande Do sul N. 646;Informática Intermediário;Noite;Chamado;2026-02-09;
+aluno_59;59;Arthur Borges Melo de Oliveira;085.046.831-09;08504683109;True;2008-02-28;(62) 99172-1321;62991721321;Rua Rio Grande Do Sul N 646;Informática;Noite;Concluído;2026-02-09;
+aluno_60;60;Valentina Vitorya Borges Santos;071.110.821-84;07111082184;True;;(64) 99204-0068;64992040068;Rua Goainia q 07 l 2a setor alegretin em frente a chacara do dr ayrton estevao;Informática;Manhã;Chamado;2026-02-09;
+aluno_61;61;Marta Rejane dos Santos Gomes;605.397.801-97;60539780197;True;1970-01-31;(64) 99231-2610;64992312610;;Costura;Noite;Chamado;2026-02-10;
+aluno_62;62;Heloisa Alves Martins dos Santos;056.899.521-09;05689952109;True;;(64) 99254-2504;64992542504;av. Alirio Reis Q. 07, L. 8, Jardim frei Walter;Informática;Tarde;Chamado;2026-02-11;
+aluno_63;63;Heloisa Alves Martins dos Santos;056.899.521-00;05689952100;True;;(64) 99254-2504;64992542504;Av. Aliri Reis Q. 07, L. 08, Jardim Frei Walter;Costura;Noite;Chamado;2026-02-11;
+aluno_64;64;Andrei Cristina Rosa da Silva;037.664.231-93;03766423193;True;1983-08-07;(64) 99323-7786;64993237786;Rua Padre Primo, N. 63, Setor Central;Modelagem;Noite;Em Espera;2026-02-11;
+aluno_65;65;Claudinele Aparecida da Silva Nascimento;846.482.361-49;84648236149;True;1970-11-17;(64) 99324-1777;64993241777;Rua Espirito Santo, Q. 11, L. 7, Bijui;Modelagem;Noite;Em Espera;2026-02-11;
+aluno_66;66;Ytamara Alves de Sousa;071.492.441-57;07149244157;True;2003-08-11;(63) 9952-3865;6399523865;Rua Padre Primo N 385 Centro;Informática;Tarde;Chamado;2026-02-11;
+aluno_67;67;Thays Fernanda Oliveira de Jesus;12345678;12345678;False;;(64) 98461-5673;64984615673;Av comercial Centro;Costura;Noite;Concluído;2026-02-12;CPF com formato suspeito: 12345678 | data de nascimento inválida/placeholder: 0001-09-17
+aluno_68;68;Thalles Enrique Ferreira da Silva Oliveira;007801763198;007801763198;False;2002-04-29;(64) 99217-9967;64992179967;Av. Comercial Centro 1591;Informática;Noite;Desistente;2026-02-12;CPF com formato suspeito: 007801763198
+aluno_69;69;Karinny Pereira Dac Silva;112.553.971-28;11255397128;True;2007-05-26;(64) 99343-4768;64993434768;Chacara Sao Lourenco;Informática;Noite;Desistente;2026-02-12;
+aluno_70;70;Laynny de Sousa Lima;093.240.036-64;09324003664;True;2006-04-26;(99) 8531-6622;9985316622;Av. Osvaldo Cruz Oficina Mecanic Centro;Informática;Noite;Desistente;2026-02-12;
+aluno_71;71;Thaemilly Maria Maciel de Jesus;088.278.511-78;08827851178;True;2005-10-29;(64) 99322-4591;64993224591;RUa 4 Q. 7, L. 8, Setor Clube;Informática;Noite;Concluído;2026-02-12;
+aluno_72;72;Eduardo Cardoso de Jesus Filho;098.099.041-69;09809904169;True;2014-05-05;(64) 9213-7818;6492137818;Av. Manoel P Patrocinio, Q. 17, L. 12,Jardim Ipe;Informática;Tarde;Em Espera;2026-02-12;
+aluno_73;73;Yan Lucas Morais Barros;707.469.121-61;70746912161;True;2014-11-27;(64) 9262-1416;6492621416;Rua Arlindo Ramos 11 Vila São Jose;Informática;Noite;Em Curso;2026-02-12;
+aluno_74;74;Karina Alves Carneiro;051.650.501-73;05165050173;True;1993-12-14;(64) 99218-8900;64992188900;Rua Natal Jorge de Abreu, Q. 4, L. !7, Setor Silvio Manoel;Costura;Noite;Chamado;2026-02-18;
+aluno_75;75;Laura Hana Alves Ferreira;099.737.111-06;09973711106;True;2011-02-14;(64) 99218-8900;64992188900;Rua Natal Jorge De Abreu, Q. 4, L. 17, Setor Silvio Manoel;Costura;Noite;Concluído;2026-02-18;
+aluno_76;76;Jessica de Assis Campos Vieira;404.985.248-10;40498524810;True;1991-05-19;(64) 9274-5006;6492745006;Rua jv 8, Q. e7, L. 13, Jardim Veredas;Informática;Tarde;Em Espera;2026-02-19;
+aluno_77;77;Erika Castilho do Carmo Gomes Pinto;096.402.911-10;09640291110;True;2008-08-18;(64) 8408-1703;6484081703;Setor Aeroporto Avenida dos Pinheiros, Q. 6, L. 5;Informática;Noite;Desistente;2026-02-19;
+aluno_78;78;Sonia Alves Barretos Souza;371.329.111-04;37132911104;True;1966-04-03;(64) 9205-0518;6492050518;Rua 03 N 131 Bairro Popular;Informática;Manhã;Em Espera;2026-02-19;
+aluno_79;79;Kaua Maciel Correia;706.116.811-02;70611681102;True;2008-10-11;(64) 9299-4439;6492994439;Rua 8, Q. 17, L. 16, Jardim Frei Walter;Informática;Noite;Desistente;2026-02-19;
+aluno_80;80;Nara Geovanna Coreia dos Santos;112.703.931-89;11270393189;True;2011-01-03;(64) 98136-1542;64981361542;Rua 4, Q. 4, L. 9, Jardim Frei Walter;Informática;Noite;Desistente;2026-02-19;
+aluno_81;81;Jose Negas de Sousa;611.993.603-33;61199360333;True;1993-07-07;(99) 98479-2347;99984792347;;Costura;Noite;Chamado;2026-02-19;
+aluno_82;82;Joseane Negas de Sousa;614.439.273-41;61443927341;True;1995-03-06;(99) 98479-2347;99984792347;;Costura;Noite;Chamado;2026-02-19;
+aluno_83;83;Maria Parecida de Godoy;875.310.621-00;87531062100;True;1972-09-17;(64) 92266-4725;64922664725;Rua Romeo Parreira, Q. 05, L. 19, Setor Silvio Manoel;Costura;Noite;Chamado;2026-02-19;
+aluno_84;84;Patrick Swyzz Sousa;702.042.001-05;70204200105;True;1994-07-28;(64) 98445-7009;64984457009;;Costura;Noite;Chamado;2026-02-19;
+aluno_85;85;Maria Aparecida Mendes;746.519.001-00;74651900100;True;1985-10-12;(64) 99300-3291;64993003291;Rua Antonio Caetano Q. 34, L. 3, Santorini 2;Costura;Noite;Chamado;2026-02-19;
+aluno_86;86;Michely Firmina Goncalves da Silva;706.117.451-00;70611745100;True;1999-10-11;(64) 99233-9568;64992339568;Rua Morrinhos Q 9321 L 09 Vila Brasil;Costura;Noite;Chamado;2026-02-19;
+aluno_87;87;Magna Pires de Rezende Souza;007.746.311-04;00774631104;True;1982-11-12;(64) 99238-8713;64992388713;Rua 5 Qd 33L 2 Jardim Frei Walter;Costura;Noite;Concluído;2026-02-20;
+aluno_88;88;Diego Negas de Sousa;038.924.503-82;03892450382;True;2010-05-16;(99) 98479-2347;99984792347;;Costura;Noite;Chamado;2026-02-20;
+aluno_89;89;Elisangela Fernandes dos Santos;993.418.321-87;99341832187;True;1984-12-11;(64) 99335-2837;64993352837;Bairro Elias Aguiar Rua 2 Q. 2, L. 4;Costura;Noite;Desistente;2026-02-20;
+aluno_90;90;Maria Luiza Ferreira Batista;042.107.431-00;04210743100;True;2014-03-19;(64) 99227-4334;64992274334;;Costura;Noite;Chamado;2026-02-23;
+aluno_91;91;Taynara de Oliveira dos Reis;068.939.781-03;06893978103;True;1998-06-01;(64) 99281-3874;64992813874;Rua Francisco Lourenco Q. 43, L. 16, jardim Frei Walter;Costura;Noite;Concluído;2026-02-23;
+aluno_92;92;Laryssa Vieira da Silva;089.846.951-14;08984695114;True;2003-04-20;(64) 99236-8604;64992368604;Av. Alírio Reis Qd 6 Lt 13 Jardim Frei Walter;Costura;Noite;Chamado;2026-02-24;
+aluno_93;93;Jackellynne Marques Siqueira;007.760.191-20;00776019120;True;1985-01-20;(64) 99951-1642;64999511642;Rua Jose Inacio da Silva Manoel, Qd 7 Lt 1 jardim Frei Walter;Modelagem;Noite;Em Curso;2026-02-24;
+aluno_94;94;Nilva Vieira Costa;007.751.041-08;00775104108;True;1984-05-15;(64) 99235-3714;64992353714;Rua 4 Qd 4 Lt16 Jardim Frei Walter;Modelagem;Noite;Em Curso;2026-02-24;
+aluno_95;95;Vinicius Gabriel de Oliveira;107.063.671-11;10706367111;True;;(64) 99249-8673;64992498673;Rua Flamboyant Q. 2 L 29 Setor Santorine;Informática;Tarde;Em Espera;2026-02-27;
+aluno_96;96;Diuly Gabriella Cristina Santos;705.648.311-90;70564831190;True;1999-10-14;(64) 9305-8216;6493058216;Rua 07 Lote 17 Q. 30, N 38 Jardim Frei Walter;Informática;Noite;Em Espera;2026-02-27;
+aluno_97;97;Priscila Batista da Silva;085.829.691-80;08582969180;True;2012-09-12;(64) 99212-6417;64992126417;Rua maria jacinta Candida, Qd 336 Lt 05 - Vila Brasil II;Costura;Noite;Em Espera;2026-03-02;
+aluno_98;98;Gustavo Janrie Rodrigues de Macedo;121.604.341-83;12160434183;True;2010-06-30;(64) 99235-8954;64992358954;Rua 4 Nº 4 Vila Israelandia;Informática;Noite;Em Curso;2026-03-03;
+aluno_99;99;Maria do Socorro Pereira de Sousa;397.114.123-49;39711412349;True;1971-01-25;(64) 99281-0873;64992810873;Avenida João Evangelista de Faria Qd 3 Lt 16 Residencial Carmerio Ricardo Pinto;Modelagem;Noite;Em Curso;2026-03-04;
+aluno_100;100;Juliana Coreia da Silva;754.323.311-87;75432331187;True;1998-12-07;(64) 9252-4700;6492524700;;Modelagem;Noite;Em Espera;2026-03-04;
+aluno_101;101;Natalia Gomes dos Santos;025.211.001-37;02521100137;True;1985-01-03;(64) 9218-8403;6492188403;;Informática;Tarde;Em Espera;2026-03-04;
+aluno_102;102;Jhocta Mendes Barcelos Braga;044.322.941-95;04432294195;True;1993-09-30;(64) 9218-8403;6492188403;Av e, q. 21, L. 14, Via Brasil;Informática;Tarde;Em Espera;2026-03-04;
+aluno_103;103;Sophia Nunes do Carmo;077.800.131-47;07780013147;True;2009-04-23;(64) 9218-8403;6492188403;Av E, Q. 21, L. !4, Vila Brasil;Informática;Noite;Em Espera;2026-03-04;
+aluno_104;104;Ariani Vitoria Eres de Oliveira;712.213.481-40;71221348140;True;2002-12-13;(64) 9218-8403;6492188403;;Informática;Tarde;Em Espera;2026-03-04;
+aluno_105;105;Gilberto Pereira da Silva;015.176.841-29;01517684129;True;1981-05-08;(64) 9218-8403;6492188403;;Informática;Noite;Em Espera;2026-03-04;
+aluno_106;106;Murilo Carvalho da Silva;068.887.641-25;06888764125;True;2011-08-26;(64) 9932-0273;6499320273;Rua 2 Qd 5 Lt 5 Residencial Carvalho;Informática Intermediário;Noite;Chamado;2026-03-10;
+aluno_107;107;Patricia Inacia da Silva;007.742.871-44;00774287144;True;1985-06-28;(64) 99212-8378;64992128378;Rua 2 Qd 5 Lt 5 Residencial Carvalho;Informática Intermediário;Noite;Chamado;2026-03-10;
+aluno_108;108;Delmo Faria Silva;014.762.831-84;01476283184;True;;(64) 9218-8403;6492188403;;Informática;Noite;Em Espera;2026-03-11;
+aluno_109;109;Luiz Miguel Mendes Mendonça;0000000000;0000000000;False;;(64) 99218-8403;64992188403;Av e Q. 21, L. 14, vila Brasil;Informática;Tarde;Em Espera;2026-03-11;CPF com formato suspeito: 0000000000
+aluno_110;110;Kaiky Lima dos Reis;113.516.701-07;11351670107;True;2010-09-13;(64) 99234-8600;64992348600;Av. Dr. Jose Guimarães Qd 29 Lt 21 Jardim Frei Walter;Costura;Noite;Em Espera;2026-03-17;
+aluno_111;111;Luyz Fernando Silva Ribeiro;091.620.771-47;09162077147;True;2016-09-09;(64) 99298-8515;64992988515;Rua D Q. 30 L. 09, Jardim Frei Walter;Informática;Noite;Em Espera;2026-03-18;nome e CPF estavam trocados no banco antigo
+aluno_112;112;Karla Godoi Silva;036.925.331-01;03692533101;True;1992-10-29;(64) 88298-8515;64882988515;Rua D, Q. 30, L. 9, Jardim Frei Walter;Informática;Noite;Em Espera;2026-03-18;
+aluno_113;113;Rhyan Dias Rocha;110.528.381-03;11052838103;True;2009-12-18;(64) 9321-2235;6493212235;Rua Morrinhos, Q. 7, L. 2, Setor Dergo;Informática;Tarde;Em Espera;2026-03-25;
+aluno_114;114;Ranielly Helena Dias Rocha;110.528.631-24;11052863124;True;2011-08-06;(64) 9321-2235;6493212235;Rua Morrinhos, Q. 7, L. 2, Setor Dergo;Informática;Manhã;Em Espera;2026-03-25;
+aluno_115;115;Agatta Gabriely Martins Miranda;716.244.381-80;71624438180;True;2010-11-15;(64) 9235-5813;6492355813;Av Francisco joaquim Freitas, Q. 331, L. 1, Vila Brasil;Informática;Noite;Em Espera;2026-04-08;
+aluno_116;116;Herlaine Helena da Silva Santos;015.422.331-00;01542233100;True;1979-05-18;(64) 98457-1828;64984571828;Rua Alagoas, Q. 346, L. 0, Setor Central;Costura;Noite;Em Espera;2026-04-13;
+aluno_117;117;Vitoria Luiza Gncalves Santiago;069.755.251-96;06975525196;True;2008-01-12;(64) 99318-6528;64993186528;Rua Morrinhos, q. 14, L. 17, Setor Dergo;Costura;Noite;Em Espera;2026-04-13;
+aluno_118;118;Karina Alves Carneiro;05165050173 000;05165050173000;False;1993-12-14;(64) 99218-8900;64992188900;Rua Natal Jorge Abreu, Q. 4, l. 17, Setor Silvio Manoel;Modelagem;Noite;Em Espera;2026-04-13;CPF com formato suspeito: 05165050173 000
+aluno_119;119;Laura Hana Alves Ferreira;09973711106 000;09973711106000;False;;(64) 9290-8592;6492908592;Rua Natal Jorge Abreu, Q. 4, L. 17. Setor Silvio Manoel;Modelagem;Noite;Em Espera;2026-04-13;CPF com formato suspeito: 09973711106 000
+aluno_120;120;Andreia Ferreira Costa;847.332.921-04;84733292104;True;1976-12-30;(62) 99304-2548;62993042548;Av. C, Q. 10, L. 15, Setor Dergo;Modelagem;Noite;Em Espera;2026-04-15;
+aluno_121;121;Rafaela Pereira Bessa;107.223.161-19;10722316119;True;;(64) 99334-3688;64993343688;;Informática;Noite;Em Espera;2026-04-23;
+aluno_122;122;Betania Pereira Rosa;916.255.301-10;91625530110;True;1982-02-01;(62) 98416-0272;62984160272;Rua Joao Do Vico, Q. 9, L. 31 Jardim Ipe;Modelagem;Noite;Em Espera;2026-04-23;
+aluno_123;123;Rosemeire Martins Rodrigues;623.650.701-59;62365070159;True;1965-09-01;(64) 99932-1281;64999321281;Rua F, q. !1. L. 17, Jardim Frei Walter;Informática;Manhã;Em Espera;2026-04-24;
+aluno_124;124;Felipe de Oliveira Silva;117.687.153-60;11768715360;True;2008-10-14;(64) 98101-9581;64981019581;rua D, Q. 35. L. !9, Jardim Frei walter;Informática;Tarde;Em Espera;2026-05-04;
+aluno_125;125;Iara Geralda Neta;052.679.061-07;05267906107;True;1994-10-01;(64) 99292-6743;64992926743;Rua Geraldina Ferreira silva, Q. 381, L. 15, Casa 2;Informática;Tarde;Em Espera;2026-05-11;
+aluno_126;126;Lorraine Cordeiro Gregorio;756.420.851-15;75642085115;True;1996-08-15;;;Av. JM Boa Vistqa Q. 386. L. 3,;Costura;Noite;Em Espera;2026-05-18;telefone vazio ou placeholder
+aluno_127;127;Wallesk da Silva Pires;988.081.331-68;98808133168;True;1980-04-21;(64) 9216-9883;6492169883;Rua Goias N 357 Centro;Costura;Noite;Em Espera;2026-06-01;
+aluno_128;128;Emmanuel Vieira Dutra;084.978.201-50;08497820150;True;2014-07-17;(64) 9207-0738;6492070738;Rua 4, Q. 08, L. 07, Setor clube;Informática;Manhã;Em Espera;2026-06-15;

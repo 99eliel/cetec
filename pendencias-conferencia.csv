@@ -1,0 +1,20 @@
+﻿idAntigo;nome;cpf;problemas
+5;Maria Fernanda Vieira Santos;105.884.551-99;corrigido de 82007-09-05 para 2007-09-05
+13;Ismariely Almeida da Silveira;095.249.781-10;data de nascimento inválida/placeholder: 0001-01-01 | removido 0 após DDD
+14;Gustavo Henrique Mendes Prado;066999329183;CPF com formato suspeito: 066999329183
+31;Kassia Karen da Conceiçao de Moura;713.994.701-60;data de nascimento inválida/placeholder: 0001-01-01
+34;Adriana Marques Costa;0062431100;CPF com formato suspeito: 0062431100
+38;Pedro Henrique Faloni Fretas;071117064170;CPF com formato suspeito: 071117064170
+43;Joao Felipe Mesquita da Silva;000000000000;CPF com formato suspeito: 000000000000 | DDD 64 adicionado
+44;Joao Eduardo Mesquita da Silva;715.418.781-67;DDD 64 adicionado
+52;Maria Rita Xavier Silva;101.923.191-24;telefone vazio ou placeholder
+53;Rosa Maria de Sousa;546.868.811-53;telefone vazio ou placeholder
+56;Carlos Daniel;000000000;CPF com formato suspeito: 000000000 | data de nascimento inválida/placeholder: 0001-01-01 | telefone vazio ou placeholder
+57;Thaemilly;000.000.000-00;CPF com formato suspeito: 00000000000 | telefone vazio ou placeholder
+67;Thays Fernanda Oliveira de Jesus;12345678;CPF com formato suspeito: 12345678 | data de nascimento inválida/placeholder: 0001-09-17
+68;Thalles Enrique Ferreira da Silva Oliveira;007801763198;CPF com formato suspeito: 007801763198
+109;Luiz Miguel Mendes Mendonça;0000000000;CPF com formato suspeito: 0000000000
+111;Luyz Fernando Silva Ribeiro;091.620.771-47;nome e CPF estavam trocados no banco antigo
+118;Karina Alves Carneiro;05165050173 000;CPF com formato suspeito: 05165050173 000
+119;Laura Hana Alves Ferreira;09973711106 000;CPF com formato suspeito: 09973711106 000
+126;Lorraine Cordeiro Gregorio;756.420.851-15;telefone vazio ou placeholder
