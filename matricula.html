@@ -9,59 +9,108 @@
   <link rel="icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page">
-  <form id="form" class="container form-container">
-    <div class="header">
-      <h2 id="titulo">Nova Matrícula</h2>
-      <a href="consulta.html" class="btn-voltar">Consulta</a>
-    </div>
+<body class="app-page">
+  <header class="topbar no-print">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">CT</span>
+      <span class="brand-text"><strong>CETEC</strong><span>Sistema de Matrículas</span></span>
+    </a>
+    <nav class="nav-pills">
+      <a href="index.html">🏠 Início</a>
+      <a class="active" href="matricula.html">📝 Matrícula</a>
+      <a href="consulta.html">🔎 Consulta</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+    </nav>
+  </header>
 
-    <label for="data_matricula">Data da Matrícula:</label>
-    <input type="date" name="data_matricula" id="data_matricula" required>
+  <main class="app-main">
+    <form id="form" class="container form-container">
+      <div class="header">
+        <div>
+          <h2 id="titulo">Nova Matrícula</h2>
+          <p class="subtitulo">Preencha os dados principais do aluno para salvar no Firebase.</p>
+        </div>
+        <div class="header-actions">
+          <a href="consulta.html" class="btn-link">Ver consulta</a>
+          <a href="index.html" class="btn-voltar">Menu</a>
+        </div>
+      </div>
 
-    <label for="nome">Nome:</label>
-    <input type="text" name="nome" id="nome" required autocomplete="name">
+      <section class="form-section">
+        <h3 class="section-title">📌 Dados da matrícula</h3>
+        <div class="form-grid">
+          <div class="field">
+            <label for="data_matricula">Data da matrícula</label>
+            <input type="date" name="data_matricula" id="data_matricula" required>
+          </div>
+          <div class="field">
+            <label for="status">Status</label>
+            <select name="status" id="status" required>
+              <option value="Em Espera">Em Espera</option>
+              <option value="Chamado">Chamado</option>
+              <option value="Matriculado">Matriculado</option>
+              <option value="Em Curso">Em Curso</option>
+              <option value="Concluído">Concluído</option>
+              <option value="Desistente">Desistente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </div>
+        </div>
+      </section>
 
-    <label for="cpf">CPF:</label>
-    <input type="text" name="cpf" id="cpf" required inputmode="numeric" placeholder="000.000.000-00">
+      <section class="form-section">
+        <h3 class="section-title">👤 Dados do aluno</h3>
+        <div class="form-grid">
+          <div class="field full">
+            <label for="nome">Nome completo</label>
+            <input type="text" name="nome" id="nome" required autocomplete="name" placeholder="Ex.: Ana Beatriz de Souza">
+          </div>
+          <div class="field">
+            <label for="cpf">CPF</label>
+            <input type="text" name="cpf" id="cpf" required inputmode="numeric" placeholder="000.000.000-00">
+            <small class="hint">O sistema evita cadastro duplicado pelo CPF.</small>
+          </div>
+          <div class="field">
+            <label for="nascimento">Nascimento</label>
+            <input type="date" name="nascimento" id="nascimento">
+          </div>
+          <div class="field">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" name="telefone" id="telefone" inputmode="tel" placeholder="(64) 99999-9999">
+          </div>
+          <div class="field">
+            <label for="endereco">Endereço</label>
+            <input type="text" name="endereco" id="endereco" autocomplete="street-address" placeholder="Rua, número, bairro">
+          </div>
+        </div>
+      </section>
 
-    <label for="nascimento">Nascimento:</label>
-    <input type="date" name="nascimento" id="nascimento">
+      <section class="form-section">
+        <h3 class="section-title">🎓 Curso e turno</h3>
+        <div class="form-grid">
+          <div class="field">
+            <label for="curso">Curso</label>
+            <select name="curso" id="curso" required>
+              <option>Carregando...</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="turno">Turno</label>
+            <select name="turno" id="turno" required>
+              <option value="Manhã">Manhã</option>
+              <option value="Tarde">Tarde</option>
+              <option value="Noite">Noite</option>
+            </select>
+          </div>
+        </div>
+      </section>
 
-    <label for="telefone">Telefone:</label>
-    <input type="tel" name="telefone" id="telefone" inputmode="tel" placeholder="(64) 99999-9999">
-
-    <label for="endereco">Endereço:</label>
-    <input type="text" name="endereco" id="endereco" autocomplete="street-address">
-
-    <label for="curso">Curso:</label>
-    <select name="curso" id="curso" required>
-      <option>Carregando...</option>
-    </select>
-
-    <label for="turno">Turno:</label>
-    <select name="turno" id="turno" required>
-      <option value="Manhã">Manhã</option>
-      <option value="Tarde">Tarde</option>
-      <option value="Noite">Noite</option>
-    </select>
-
-    <label for="status">Status:</label>
-    <select name="status" id="status" required>
-      <option value="Em Espera">Em Espera</option>
-      <option value="Chamado">Chamado</option>
-      <option value="Matriculado">Matriculado</option>
-      <option value="Em Curso">Em Curso</option>
-      <option value="Concluído">Concluído</option>
-      <option value="Desistente">Desistente</option>
-      <option value="Cancelado">Cancelado</option>
-    </select>
-
-    <div class="btns">
-      <a href="index.html" class="btn-cancelar">Voltar</a>
-      <button type="submit" class="btn-salvar" id="btnSalvar">Salvar</button>
-    </div>
-  </form>
+      <div class="btns">
+        <a href="consulta.html" class="btn-cancelar">Cancelar</a>
+        <button type="submit" class="btn-salvar" id="btnSalvar">Salvar matrícula</button>
+      </div>
+    </form>
+  </main>
 
   <script type="module">
     import "./api.js";
@@ -83,19 +132,12 @@
 
     function aplicarMascaraTelefone(valor) {
       const n = valor.replace(/\D/g, "").slice(0, 11);
-      if (n.length <= 10) {
-        return n.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{4})(\d)/, "$1-$2");
-      }
+      if (n.length <= 10) return n.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{4})(\d)/, "$1-$2");
       return n.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d)/, "$1-$2");
     }
 
-    document.getElementById("cpf").addEventListener("input", (e) => {
-      e.target.value = aplicarMascaraCPF(e.target.value);
-    });
-
-    document.getElementById("telefone").addEventListener("input", (e) => {
-      e.target.value = aplicarMascaraTelefone(e.target.value);
-    });
+    document.getElementById("cpf").addEventListener("input", (e) => e.target.value = aplicarMascaraCPF(e.target.value));
+    document.getElementById("telefone").addEventListener("input", (e) => e.target.value = aplicarMascaraTelefone(e.target.value));
 
     function hojeISO() {
       const hoje = new Date();
@@ -105,12 +147,9 @@
 
     async function carregarCursos() {
       const resC = await window.api.getCursos();
-      selCurso.innerHTML = '<option value="">Selecione...</option>';
-      if (resC.success && resC.data.length) {
-        resC.data.forEach((c) => selCurso.add(new Option(c.nome, c.nome)));
-      } else {
-        selCurso.innerHTML = '<option value="">Cadastre um curso primeiro</option>';
-      }
+      selCurso.innerHTML = '<option value="">Selecione o curso...</option>';
+      if (resC.success && resC.data.length) resC.data.forEach((c) => selCurso.add(new Option(c.nome, c.nome)));
+      else selCurso.innerHTML = '<option value="">Cadastre um curso primeiro</option>';
     }
 
     async function init() {
@@ -119,6 +158,7 @@
 
       if (id) {
         document.getElementById("titulo").innerText = "Editar Matrícula";
+        btnSalvar.textContent = "Salvar alterações";
         const resA = await window.api.getAlunoById(id);
         if (resA.success && resA.data) {
           const a = resA.data;
@@ -136,6 +176,7 @@
     form.onsubmit = async (e) => {
       e.preventDefault();
       btnSalvar.disabled = true;
+      const textoOriginal = btnSalvar.textContent;
       btnSalvar.textContent = "Salvando...";
 
       const dados = Object.fromEntries(new FormData(e.target));
@@ -143,7 +184,7 @@
 
       await window.api.showMessage(res.message);
       btnSalvar.disabled = false;
-      btnSalvar.textContent = "Salvar";
+      btnSalvar.textContent = textoOriginal;
 
       if (res.success) window.location.href = "consulta.html";
     };

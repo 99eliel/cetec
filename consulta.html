@@ -9,128 +9,149 @@
   <link rel="icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page">
-  <div class="container full-container">
-    <div class="header">
-      <div>
-        <h2>Consulta de Alunos</h2>
-        <p class="subtitulo">Filtre por busca, data, período, curso, turno e status.</p>
-      </div>
-      <div class="header-actions">
-        <a href="matricula.html" class="btn-link btn-positivo">Nova matrícula</a>
-        <a href="index.html" class="btn-voltar">Voltar</a>
-      </div>
-    </div>
+<body class="app-page">
+  <header class="topbar no-print">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">CT</span>
+      <span class="brand-text"><strong>CETEC</strong><span>Sistema de Matrículas</span></span>
+    </a>
+    <nav class="nav-pills">
+      <a href="index.html">🏠 Início</a>
+      <a href="matricula.html">📝 Matrícula</a>
+      <a class="active" href="consulta.html">🔎 Consulta</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+    </nav>
+  </header>
 
-    <div class="filters-box">
-      <div class="filters-grid consulta-grid">
-        <div class="field field-wide">
-          <label for="fBusca">Busca geral</label>
-          <input type="text" id="fBusca" placeholder="Nome, CPF, telefone, endereço, curso...">
+  <main class="app-main">
+    <div class="container full-container">
+      <div class="header">
+        <div>
+          <h2>Consulta de Alunos</h2>
+          <p class="subtitulo">Encontre alunos por nome, CPF, telefone, período, curso, turno ou status.</p>
         </div>
-
-        <div class="field">
-          <label for="fPeriodo">Período</label>
-          <select id="fPeriodo">
-            <option value="todos">Todas as datas</option>
-            <option value="hoje">Hoje</option>
-            <option value="7dias">Últimos 7 dias</option>
-            <option value="30dias">Últimos 30 dias</option>
-            <option value="mesAtual">Mês atual</option>
-            <option value="mesPassado">Mês passado</option>
-            <option value="anoAtual">Ano atual</option>
-            <option value="personalizado">Personalizado</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="fInicio">Data inicial</label>
-          <input type="date" id="fInicio">
-        </div>
-
-        <div class="field">
-          <label for="fFim">Data final</label>
-          <input type="date" id="fFim">
-        </div>
-
-        <div class="field">
-          <label for="fCurso">Curso</label>
-          <select id="fCurso"><option value="">Todos os cursos</option></select>
-        </div>
-
-        <div class="field">
-          <label for="fTurno">Turno</label>
-          <select id="fTurno">
-            <option value="">Todos os turnos</option>
-            <option value="Manhã">Manhã</option>
-            <option value="Tarde">Tarde</option>
-            <option value="Noite">Noite</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="fStatus">Status</label>
-          <select id="fStatus">
-            <option value="">Todos os status</option>
-            <option value="Em Espera">Em Espera</option>
-            <option value="Chamado">Chamado</option>
-            <option value="Matriculado">Matriculado</option>
-            <option value="Em Curso">Em Curso</option>
-            <option value="Concluído">Concluído</option>
-            <option value="Desistente">Desistente</option>
-            <option value="Cancelado">Cancelado</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="fOrdem">Ordenar por</label>
-          <select id="fOrdem">
-            <option value="data-asc">Data: mais antigas primeiro</option>
-            <option value="data-desc">Data: mais recentes primeiro</option>
-            <option value="nome">Nome A-Z</option>
-            <option value="curso">Curso</option>
-            <option value="status">Status</option>
-          </select>
+        <div class="header-actions">
+          <a href="matricula.html" class="btn-link btn-positivo">Nova matrícula</a>
+          <a href="dashboard.html" class="btn-link">Dashboard</a>
         </div>
       </div>
 
-      <div class="filter-actions">
-        <button class="btn-secundario" id="btnLimpar" type="button">Limpar filtros</button>
-        <button class="btn-secundario" id="btnImprimir" type="button">Imprimir lista filtrada</button>
+      <section class="filters-box no-print">
+        <div class="filters-title">
+          <strong>Filtros da consulta</strong>
+          <small class="subtitulo">Use filtros combinados para montar qualquer cenário.</small>
+        </div>
+        <div class="filters-grid consulta-grid">
+          <div class="field field-wide">
+            <label for="fBusca">Busca geral</label>
+            <input type="text" id="fBusca" placeholder="Nome, CPF, telefone, endereço, curso, turno ou status...">
+          </div>
+
+          <div class="field">
+            <label for="fPeriodo">Período</label>
+            <select id="fPeriodo">
+              <option value="todos">Todas as datas</option>
+              <option value="hoje">Hoje</option>
+              <option value="7dias">Últimos 7 dias</option>
+              <option value="30dias">Últimos 30 dias</option>
+              <option value="mesAtual">Mês atual</option>
+              <option value="mesPassado">Mês passado</option>
+              <option value="anoAtual">Ano atual</option>
+              <option value="personalizado">Personalizado</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fInicio">Data inicial</label>
+            <input type="date" id="fInicio">
+          </div>
+
+          <div class="field">
+            <label for="fFim">Data final</label>
+            <input type="date" id="fFim">
+          </div>
+
+          <div class="field">
+            <label for="fCurso">Curso</label>
+            <select id="fCurso"><option value="">Todos os cursos</option></select>
+          </div>
+
+          <div class="field">
+            <label for="fTurno">Turno</label>
+            <select id="fTurno">
+              <option value="">Todos os turnos</option>
+              <option value="Manhã">Manhã</option>
+              <option value="Tarde">Tarde</option>
+              <option value="Noite">Noite</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fStatus">Status</label>
+            <select id="fStatus">
+              <option value="">Todos os status</option>
+              <option value="Em Espera">Em Espera</option>
+              <option value="Chamado">Chamado</option>
+              <option value="Matriculado">Matriculado</option>
+              <option value="Em Curso">Em Curso</option>
+              <option value="Concluído">Concluído</option>
+              <option value="Desistente">Desistente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fOrdem">Ordenar por</label>
+            <select id="fOrdem">
+              <option value="data-asc">Data: mais antigas primeiro</option>
+              <option value="data-desc">Data: mais recentes primeiro</option>
+              <option value="nome">Nome A-Z</option>
+              <option value="curso">Curso</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <button class="btn-secundario" id="btnLimpar" type="button">Limpar filtros</button>
+          <button class="btn-secundario" id="btnImprimir" type="button">Imprimir lista filtrada</button>
+        </div>
+      </section>
+
+      <section class="summary-grid" id="resumo" aria-label="Resumo da consulta">
+        <div class="summary-card destaque"><span>Total filtrado</span><strong id="rTotal">0</strong></div>
+        <div class="summary-card"><span>Em Espera</span><strong id="rEspera">0</strong></div>
+        <div class="summary-card"><span>Chamados</span><strong id="rChamado">0</strong></div>
+        <div class="summary-card"><span>Em Curso</span><strong id="rCurso">0</strong></div>
+        <div class="summary-card"><span>Concluídos</span><strong id="rConcluido">0</strong></div>
+      </section>
+
+      <div class="table-toolbar">
+        <span id="infoResultado">Carregando alunos...</span>
+      </div>
+
+      <div class="student-cards" id="cardsMobile"></div>
+
+      <div class="table-wrapper">
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Aluno</th>
+              <th>Contato</th>
+              <th>Curso / Turno</th>
+              <th>Status</th>
+              <th>Endereço</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="7" class="empty">Carregando...</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
-
-    <div class="summary-grid" id="resumo">
-      <div class="summary-card"><span>Total filtrado</span><strong id="rTotal">0</strong></div>
-      <div class="summary-card"><span>Em Espera</span><strong id="rEspera">0</strong></div>
-      <div class="summary-card"><span>Chamados</span><strong id="rChamado">0</strong></div>
-      <div class="summary-card"><span>Em Curso</span><strong id="rCurso">0</strong></div>
-      <div class="summary-card"><span>Concluídos</span><strong id="rConcluido">0</strong></div>
-    </div>
-
-    <div class="table-toolbar">
-      <span id="infoResultado">Carregando alunos...</span>
-    </div>
-
-    <div class="table-wrapper">
-      <table id="table">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Aluno</th>
-            <th>Contato</th>
-            <th>Curso / Turno</th>
-            <th>Status</th>
-            <th>Endereço</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="7" class="empty">Carregando...</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  </main>
 
   <script type="module">
     import "./api.js";
@@ -140,6 +161,7 @@
     let renderizados = [];
 
     const tbody = document.querySelector("#table tbody");
+    const cardsMobile = document.getElementById("cardsMobile");
     const filtros = {
       busca: document.getElementById("fBusca"),
       periodo: document.getElementById("fPeriodo"),
@@ -163,13 +185,8 @@
       return d.toISOString().slice(0, 10);
     }
 
-    function primeiroDiaMes(data) {
-      return new Date(data.getFullYear(), data.getMonth(), 1);
-    }
-
-    function ultimoDiaMes(data) {
-      return new Date(data.getFullYear(), data.getMonth() + 1, 0);
-    }
+    function primeiroDiaMes(data) { return new Date(data.getFullYear(), data.getMonth(), 1); }
+    function ultimoDiaMes(data) { return new Date(data.getFullYear(), data.getMonth() + 1, 0); }
 
     function aplicarPeriodoRapido() {
       const tipo = filtros.periodo.value;
@@ -187,24 +204,11 @@
       filtros.fim.disabled = tipo !== "todos";
 
       if (tipo === "hoje") inicio = fim = iso(hoje);
-      if (tipo === "7dias") {
-        const data = new Date(hoje); data.setDate(data.getDate() - 6);
-        inicio = iso(data); fim = iso(hoje);
-      }
-      if (tipo === "30dias") {
-        const data = new Date(hoje); data.setDate(data.getDate() - 29);
-        inicio = iso(data); fim = iso(hoje);
-      }
-      if (tipo === "mesAtual") {
-        inicio = iso(primeiroDiaMes(hoje)); fim = iso(ultimoDiaMes(hoje));
-      }
-      if (tipo === "mesPassado") {
-        const data = new Date(hoje.getFullYear(), hoje.getMonth() - 1, 1);
-        inicio = iso(primeiroDiaMes(data)); fim = iso(ultimoDiaMes(data));
-      }
-      if (tipo === "anoAtual") {
-        inicio = `${hoje.getFullYear()}-01-01`; fim = `${hoje.getFullYear()}-12-31`;
-      }
+      if (tipo === "7dias") { const data = new Date(hoje); data.setDate(data.getDate() - 6); inicio = iso(data); fim = iso(hoje); }
+      if (tipo === "30dias") { const data = new Date(hoje); data.setDate(data.getDate() - 29); inicio = iso(data); fim = iso(hoje); }
+      if (tipo === "mesAtual") { inicio = iso(primeiroDiaMes(hoje)); fim = iso(ultimoDiaMes(hoje)); }
+      if (tipo === "mesPassado") { const data = new Date(hoje.getFullYear(), hoje.getMonth() - 1, 1); inicio = iso(primeiroDiaMes(data)); fim = iso(ultimoDiaMes(data)); }
+      if (tipo === "anoAtual") { inicio = `${hoje.getFullYear()}-01-01`; fim = `${hoje.getFullYear()}-12-31`; }
 
       filtros.inicio.value = inicio;
       filtros.fim.value = fim;
@@ -221,9 +225,7 @@
       return "badge";
     }
 
-    function e(valor) {
-      return window.api.escapeHTML(valor || "");
-    }
+    function e(valor) { return window.api.escapeHTML(valor || ""); }
 
     function filtrosAtuais() {
       return {
@@ -259,15 +261,15 @@
       const resA = await window.api.getAlunos({ ordenacao: filtros.ordem.value });
       if (!resA.success) {
         tbody.innerHTML = `<tr><td colspan="7" class="empty">${e(resA.message || "Erro ao carregar alunos.")}</td></tr>`;
+        cardsMobile.innerHTML = `<div class="student-card">${e(resA.message || "Erro ao carregar alunos.")}</div>`;
         return;
       }
       alunos = resA.data;
       render();
     }
 
-    function render() {
-      renderizados = window.api.filtrarAlunos(alunos, filtrosAtuais());
-      renderizados = [...renderizados].sort((a, b) => {
+    function ordenarLista(lista) {
+      return [...lista].sort((a, b) => {
         const ordem = filtros.ordem.value;
         if (ordem === "data-desc") return window.api.dataISO(b.data_matricula).localeCompare(window.api.dataISO(a.data_matricula)) || String(a.nome || "").localeCompare(String(b.nome || ""), "pt-BR");
         if (ordem === "nome") return String(a.nome || "").localeCompare(String(b.nome || ""), "pt-BR");
@@ -275,11 +277,47 @@
         if (ordem === "status") return String(a.status || "").localeCompare(String(b.status || ""), "pt-BR") || String(a.nome || "").localeCompare(String(b.nome || ""), "pt-BR");
         return window.api.dataISO(a.data_matricula).localeCompare(window.api.dataISO(b.data_matricula)) || String(a.nome || "").localeCompare(String(b.nome || ""), "pt-BR");
       });
+    }
 
+    function opcoesStatus(statusAtual) {
+      return window.api.STATUS_PADRAO.map((s) => `<option value="${e(s)}" ${s === statusAtual ? "selected" : ""}>${e(s)}</option>`).join("");
+    }
+
+    function renderCardAluno(a) {
+      return `
+        <article class="student-card">
+          <div class="student-card-head">
+            <div>
+              <h3>${e(a.nome || "-")}</h3>
+              <div class="cpf">CPF: ${e(a.cpf || "Não informado")}</div>
+            </div>
+            <span class="${classeStatus(a.status)}">${e(a.status || "-")}</span>
+          </div>
+          <div class="student-info">
+            <div><span>Matrícula</span><strong>${e(window.api.formatarDataBR(a.data_matricula))}</strong></div>
+            <div><span>Curso</span><strong>${e(a.curso || "-")}</strong></div>
+            <div><span>Turno</span><strong>${e(a.turno || "-")}</strong></div>
+            <div><span>Telefone</span><strong>${e(a.telefone || "-")}</strong></div>
+            <div><span>Endereço</span><strong>${e(a.endereco || "-")}</strong></div>
+          </div>
+          <label for="status-${e(a.id)}">Alterar status</label>
+          <select id="status-${e(a.id)}" data-action="status" data-id="${e(a.id)}">${opcoesStatus(a.status)}</select>
+          <div class="student-actions">
+            <button class="btn btn-zap btn-sm" data-action="zap" data-id="${e(a.id)}">WhatsApp</button>
+            <button class="btn btn-pdf btn-sm" data-action="pdf" data-id="${e(a.id)}">Ficha</button>
+            <button class="btn btn-edit btn-sm" data-action="edit" data-id="${e(a.id)}">Editar</button>
+            <button class="btn btn-del btn-sm" data-action="del" data-id="${e(a.id)}">Excluir</button>
+          </div>
+        </article>`;
+    }
+
+    function render() {
+      renderizados = ordenarLista(window.api.filtrarAlunos(alunos, filtrosAtuais()));
       atualizarResumo(renderizados);
 
       if (!renderizados.length) {
         tbody.innerHTML = '<tr><td colspan="7" class="empty">Nenhum aluno encontrado com esses filtros.</td></tr>';
+        cardsMobile.innerHTML = '<div class="student-card empty">Nenhum aluno encontrado com esses filtros.</div>';
         return;
       }
 
@@ -290,22 +328,21 @@
           <td>${e(a.telefone || "-")}<br><small>Nasc.: ${e(window.api.formatarDataBR(a.nascimento))}</small></td>
           <td>${e(a.curso || "-")}<br><small>${e(a.turno || "")}</small></td>
           <td>
-            <span class="${classeStatus(a.status)}">${e(a.status || "-")}</span>
-            <select class="status-inline" data-action="status" data-id="${e(a.id)}">
-              ${window.api.STATUS_PADRAO.map((s) => `<option value="${e(s)}" ${s === a.status ? "selected" : ""}>${e(s)}</option>`).join("")}
-            </select>
+            <span class="${classeStatus(a.status)}">${e(a.status || "-")}</span><br>
+            <select class="status-inline" data-action="status" data-id="${e(a.id)}">${opcoesStatus(a.status)}</select>
           </td>
           <td>${e(a.endereco || "-")}</td>
           <td>
-            <div class="btn-group btn-group-5">
-              <button class="btn btn-zap" data-action="zap" data-id="${e(a.id)}">Whats</button>
-              <button class="btn btn-pdf" data-action="pdf" data-id="${e(a.id)}">PDF</button>
-              <button class="btn btn-edit" data-action="edit" data-id="${e(a.id)}">✏️</button>
-              <button class="btn btn-del" data-action="del" data-id="${e(a.id)}">❌</button>
+            <div class="btn-group">
+              <button class="btn btn-zap btn-sm" data-action="zap" data-id="${e(a.id)}">Whats</button>
+              <button class="btn btn-pdf btn-sm" data-action="pdf" data-id="${e(a.id)}">Ficha</button>
+              <button class="btn btn-edit btn-sm" data-action="edit" data-id="${e(a.id)}">Editar</button>
+              <button class="btn btn-del btn-sm" data-action="del" data-id="${e(a.id)}">Excluir</button>
             </div>
           </td>
-        </tr>
-      `).join("");
+        </tr>`).join("");
+
+      cardsMobile.innerHTML = renderizados.map(renderCardAluno).join("");
     }
 
     async function alterarStatus(id, status) {
@@ -333,7 +370,7 @@
       render();
     }
 
-    tbody.addEventListener("click", async (event) => {
+    document.addEventListener("click", async (event) => {
       const botao = event.target.closest("button[data-action]");
       if (!botao) return;
 
@@ -358,29 +395,20 @@
       if (action === "zap") {
         const aluno = alunos.find((a) => a.id === id);
         const res = await window.api.chamarWhatsApp(id);
-        if (!res.success) {
-          await window.api.showMessage(res.message);
-        } else if (aluno?.status === "Em Espera" && confirm("Marcar este aluno como Chamado?")) {
-          await alterarStatus(id, "Chamado");
-        }
+        if (!res.success) await window.api.showMessage(res.message);
+        else if (aluno?.status === "Em Espera" && confirm("Marcar este aluno como Chamado?")) await alterarStatus(id, "Chamado");
       }
     });
 
-    tbody.addEventListener("change", async (event) => {
+    document.addEventListener("change", async (event) => {
       const select = event.target.closest('select[data-action="status"]');
       if (!select) return;
       await alterarStatus(select.dataset.id, select.value);
     });
 
     Object.values(filtros).forEach((el) => {
-      el.addEventListener("input", () => {
-        if (el === filtros.periodo) aplicarPeriodoRapido();
-        render();
-      });
-      el.addEventListener("change", () => {
-        if (el === filtros.periodo) aplicarPeriodoRapido();
-        render();
-      });
+      el.addEventListener("input", () => { if (el === filtros.periodo) aplicarPeriodoRapido(); render(); });
+      el.addEventListener("change", () => { if (el === filtros.periodo) aplicarPeriodoRapido(); render(); });
     });
 
     document.getElementById("btnLimpar").addEventListener("click", limparFiltros);

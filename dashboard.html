@@ -10,122 +10,141 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="page">
-  <div class="container full-container">
-    <div class="header">
-      <div>
-        <h1>Dashboard</h1>
-        <p class="subtitulo">Relatórios por data, curso, turno e status.</p>
+<body class="app-page">
+  <header class="topbar no-print">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">CT</span>
+      <span class="brand-text"><strong>CETEC</strong><span>Sistema de Matrículas</span></span>
+    </a>
+    <nav class="nav-pills">
+      <a href="index.html">🏠 Início</a>
+      <a href="matricula.html">📝 Matrícula</a>
+      <a href="consulta.html">🔎 Consulta</a>
+      <a class="active" href="dashboard.html">📊 Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <div class="container full-container">
+      <div class="header">
+        <div>
+          <h1>Dashboard</h1>
+          <p class="subtitulo">Acompanhe matrículas por data, curso, turno, status e mês.</p>
+        </div>
+        <div class="header-actions">
+          <a href="consulta.html" class="btn-link btn-positivo">Abrir consulta</a>
+          <a href="index.html" class="btn-voltar">Menu</a>
+        </div>
       </div>
-      <div class="header-actions">
-        <a href="consulta.html" class="btn-link btn-positivo">Consulta</a>
-        <a href="index.html" class="btn-voltar">Voltar</a>
+
+      <section class="filters-box no-print">
+        <div class="filters-title">
+          <strong>Filtros do dashboard</strong>
+          <small class="subtitulo">Os cards e gráficos mudam conforme os filtros abaixo.</small>
+        </div>
+        <div class="filters-grid dashboard-grid-filtros">
+          <div class="field">
+            <label for="fPeriodo">Período</label>
+            <select id="fPeriodo">
+              <option value="todos">Todas as datas</option>
+              <option value="hoje">Hoje</option>
+              <option value="7dias">Últimos 7 dias</option>
+              <option value="30dias">Últimos 30 dias</option>
+              <option value="mesAtual">Mês atual</option>
+              <option value="mesPassado">Mês passado</option>
+              <option value="anoAtual">Ano atual</option>
+              <option value="personalizado">Personalizado</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fInicio">Data inicial</label>
+            <input type="date" id="fInicio">
+          </div>
+
+          <div class="field">
+            <label for="fFim">Data final</label>
+            <input type="date" id="fFim">
+          </div>
+
+          <div class="field">
+            <label for="fCurso">Curso</label>
+            <select id="fCurso"><option value="">Todos os cursos</option></select>
+          </div>
+
+          <div class="field">
+            <label for="fTurno">Turno</label>
+            <select id="fTurno">
+              <option value="">Todos os turnos</option>
+              <option value="Manhã">Manhã</option>
+              <option value="Tarde">Tarde</option>
+              <option value="Noite">Noite</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fStatus">Status</label>
+            <select id="fStatus">
+              <option value="">Todos os status</option>
+              <option value="Em Espera">Em Espera</option>
+              <option value="Chamado">Chamado</option>
+              <option value="Matriculado">Matriculado</option>
+              <option value="Em Curso">Em Curso</option>
+              <option value="Concluído">Concluído</option>
+              <option value="Desistente">Desistente</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <button class="btn-secundario" id="btnLimpar" type="button">Limpar filtros</button>
+          <button class="btn-secundario" id="btnImprimir" type="button">Imprimir dashboard</button>
+        </div>
+      </section>
+
+      <section class="summary-grid dashboard-summary">
+        <div class="summary-card destaque"><span>Total filtrado</span><strong id="total">...</strong></div>
+        <div class="summary-card"><span>Em Espera</span><strong id="espera">0</strong></div>
+        <div class="summary-card"><span>Chamados</span><strong id="chamado">0</strong></div>
+        <div class="summary-card"><span>Matriculados</span><strong id="matriculado">0</strong></div>
+        <div class="summary-card"><span>Em Curso</span><strong id="curso">0</strong></div>
+        <div class="summary-card"><span>Concluídos</span><strong id="concluido">0</strong></div>
+      </section>
+
+      <div class="table-toolbar">
+        <span id="filtrosAplicados">Carregando dados...</span>
       </div>
+
+      <section class="grid-dashboard">
+        <div class="card-dashboard">
+          <h3>Por Status</h3>
+          <div class="chart-box"><canvas id="chartStatus"></canvas></div>
+        </div>
+
+        <div class="card-dashboard">
+          <h3>Por Curso</h3>
+          <div class="chart-box"><canvas id="chartCurso"></canvas></div>
+        </div>
+
+        <div class="card-dashboard">
+          <h3>Por Turno</h3>
+          <div class="chart-box"><canvas id="chartTurno"></canvas></div>
+        </div>
+
+        <div class="card-dashboard">
+          <h3>Matrículas por Mês</h3>
+          <div class="chart-box"><canvas id="chartMes"></canvas></div>
+        </div>
+      </section>
     </div>
-
-    <div class="filters-box no-print">
-      <div class="filters-grid dashboard-grid-filtros">
-        <div class="field">
-          <label for="fPeriodo">Período</label>
-          <select id="fPeriodo">
-            <option value="todos">Todas as datas</option>
-            <option value="hoje">Hoje</option>
-            <option value="7dias">Últimos 7 dias</option>
-            <option value="30dias">Últimos 30 dias</option>
-            <option value="mesAtual">Mês atual</option>
-            <option value="mesPassado">Mês passado</option>
-            <option value="anoAtual">Ano atual</option>
-            <option value="personalizado">Personalizado</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="fInicio">Data inicial</label>
-          <input type="date" id="fInicio">
-        </div>
-
-        <div class="field">
-          <label for="fFim">Data final</label>
-          <input type="date" id="fFim">
-        </div>
-
-        <div class="field">
-          <label for="fCurso">Curso</label>
-          <select id="fCurso"><option value="">Todos os cursos</option></select>
-        </div>
-
-        <div class="field">
-          <label for="fTurno">Turno</label>
-          <select id="fTurno">
-            <option value="">Todos os turnos</option>
-            <option value="Manhã">Manhã</option>
-            <option value="Tarde">Tarde</option>
-            <option value="Noite">Noite</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="fStatus">Status</label>
-          <select id="fStatus">
-            <option value="">Todos os status</option>
-            <option value="Em Espera">Em Espera</option>
-            <option value="Chamado">Chamado</option>
-            <option value="Matriculado">Matriculado</option>
-            <option value="Em Curso">Em Curso</option>
-            <option value="Concluído">Concluído</option>
-            <option value="Desistente">Desistente</option>
-            <option value="Cancelado">Cancelado</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="filter-actions">
-        <button class="btn-secundario" id="btnLimpar" type="button">Limpar filtros</button>
-        <button class="btn-secundario" id="btnImprimir" type="button">Imprimir dashboard</button>
-      </div>
-    </div>
-
-    <div class="summary-grid dashboard-summary">
-      <div class="summary-card destaque"><span>Total filtrado</span><strong id="total">...</strong></div>
-      <div class="summary-card"><span>Em Espera</span><strong id="espera">0</strong></div>
-      <div class="summary-card"><span>Chamados</span><strong id="chamado">0</strong></div>
-      <div class="summary-card"><span>Matriculados</span><strong id="matriculado">0</strong></div>
-      <div class="summary-card"><span>Em Curso</span><strong id="curso">0</strong></div>
-      <div class="summary-card"><span>Concluídos</span><strong id="concluido">0</strong></div>
-    </div>
-
-    <div class="table-toolbar">
-      <span id="filtrosAplicados">Carregando dados...</span>
-    </div>
-
-    <div class="grid-dashboard">
-      <div class="card-dashboard">
-        <h3>Por Status</h3>
-        <div class="chart-box"><canvas id="chartStatus"></canvas></div>
-      </div>
-
-      <div class="card-dashboard">
-        <h3>Por Curso</h3>
-        <div class="chart-box"><canvas id="chartCurso"></canvas></div>
-      </div>
-
-      <div class="card-dashboard">
-        <h3>Por Turno</h3>
-        <div class="chart-box"><canvas id="chartTurno"></canvas></div>
-      </div>
-
-      <div class="card-dashboard">
-        <h3>Matrículas por Mês</h3>
-        <div class="chart-box"><canvas id="chartMes"></canvas></div>
-      </div>
-    </div>
-  </div>
+  </main>
 
   <script type="module">
     import "./api.js";
     import "./pwa.js";
 
-    const colors = ["#005a9c", "#28a745", "#ffc107", "#dc3545", "#6c757d", "#e65100", "#1e88e5", "#8e24aa"];
+    const colors = ["#005a9c", "#20a65a", "#f7c948", "#dc3545", "#687782", "#e65100", "#1e88e5", "#8e24aa"];
     const charts = {};
 
     const filtros = {
@@ -171,10 +190,7 @@
       if (tipo === "7dias") { const d = new Date(hoje); d.setDate(d.getDate() - 6); inicio = iso(d); fim = iso(hoje); }
       if (tipo === "30dias") { const d = new Date(hoje); d.setDate(d.getDate() - 29); inicio = iso(d); fim = iso(hoje); }
       if (tipo === "mesAtual") { inicio = iso(primeiroDiaMes(hoje)); fim = iso(ultimoDiaMes(hoje)); }
-      if (tipo === "mesPassado") {
-        const d = new Date(hoje.getFullYear(), hoje.getMonth() - 1, 1);
-        inicio = iso(primeiroDiaMes(d)); fim = iso(ultimoDiaMes(d));
-      }
+      if (tipo === "mesPassado") { const d = new Date(hoje.getFullYear(), hoje.getMonth() - 1, 1); inicio = iso(primeiroDiaMes(d)); fim = iso(ultimoDiaMes(d)); }
       if (tipo === "anoAtual") { inicio = `${hoje.getFullYear()}-01-01`; fim = `${hoje.getFullYear()}-12-31`; }
 
       filtros.inicio.value = inicio;
@@ -191,17 +207,16 @@
       };
     }
 
-    function destruirChart(id) {
-      if (charts[id]) charts[id].destroy();
-    }
+    function destruirChart(id) { if (charts[id]) charts[id].destroy(); }
 
     function criarChart(id, tipo, labels, data) {
       destruirChart(id);
+      const semDados = !data.length;
       charts[id] = new Chart(document.getElementById(id), {
         type: tipo,
         data: {
-          labels,
-          datasets: [{ data, backgroundColor: colors }]
+          labels: semDados ? ["Sem dados"] : labels,
+          datasets: [{ data: semDados ? [1] : data, backgroundColor: colors, borderWidth: 0 }]
         },
         options: {
           maintainAspectRatio: false,
@@ -244,7 +259,8 @@
       document.getElementById("concluido").textContent = status["Concluído"] || 0;
       document.getElementById("filtrosAplicados").textContent = textoFiltros();
 
-      criarChart("chartStatus", "doughnut", data.porStatus.filter((x) => x.count > 0).map((x) => x.status), data.porStatus.filter((x) => x.count > 0).map((x) => x.count));
+      const porStatus = data.porStatus.filter((x) => x.count > 0);
+      criarChart("chartStatus", "doughnut", porStatus.map((x) => x.status), porStatus.map((x) => x.count));
       criarChart("chartCurso", "doughnut", data.porCurso.map((x) => x.curso), data.porCurso.map((x) => x.count));
       criarChart("chartTurno", "doughnut", data.porTurno.map((x) => x.turno), data.porTurno.map((x) => x.count));
       criarChart("chartMes", "bar", data.porMes.map((x) => x.mes), data.porMes.map((x) => x.count));
@@ -263,14 +279,8 @@
     }
 
     Object.values(filtros).forEach((el) => {
-      el.addEventListener("input", () => {
-        if (el === filtros.periodo) aplicarPeriodoRapido();
-        atualizarDashboard();
-      });
-      el.addEventListener("change", () => {
-        if (el === filtros.periodo) aplicarPeriodoRapido();
-        atualizarDashboard();
-      });
+      el.addEventListener("input", () => { if (el === filtros.periodo) aplicarPeriodoRapido(); atualizarDashboard(); });
+      el.addEventListener("change", () => { if (el === filtros.periodo) aplicarPeriodoRapido(); atualizarDashboard(); });
     });
 
     document.getElementById("btnLimpar").addEventListener("click", limparFiltros);

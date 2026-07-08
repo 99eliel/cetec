@@ -9,20 +9,48 @@
   <link rel="icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page">
-  <div class="container form-container">
-    <div class="header">
-      <h2>Gerenciar Cursos</h2>
-      <a href="index.html" class="btn-voltar">Voltar</a>
-    </div>
+<body class="app-page">
+  <header class="topbar no-print">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">CT</span>
+      <span class="brand-text"><strong>CETEC</strong><span>Sistema de Matrículas</span></span>
+    </a>
+    <nav class="nav-pills">
+      <a href="index.html">🏠 Início</a>
+      <a href="matricula.html">📝 Matrícula</a>
+      <a href="consulta.html">🔎 Consulta</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+    </nav>
+  </header>
 
-    <div class="add-box">
-      <input type="text" id="novo" placeholder="Nome do curso...">
-      <button class="btn-add" id="btnAdd">Adicionar</button>
-    </div>
+  <main class="app-main">
+    <div class="container form-container">
+      <div class="header">
+        <div>
+          <h2>Gerenciar Cursos</h2>
+          <p class="subtitulo">Cadastre os cursos que aparecem no formulário de matrícula e nos filtros.</p>
+        </div>
+        <div class="header-actions">
+          <a href="matricula.html" class="btn-link btn-positivo">Nova matrícula</a>
+          <a href="index.html" class="btn-voltar">Menu</a>
+        </div>
+      </div>
 
-    <ul id="lista" class="lista"><li>Carregando...</li></ul>
-  </div>
+      <section class="form-section">
+        <h3 class="section-title">📚 Novo curso</h3>
+        <div class="add-box">
+          <input type="text" id="novo" placeholder="Nome do curso...">
+          <button class="btn-add" id="btnAdd" type="button">Adicionar</button>
+        </div>
+        <small class="hint">Evite cadastrar o mesmo curso com nomes diferentes, para manter os relatórios limpos.</small>
+      </section>
+
+      <section>
+        <div class="table-toolbar"><span>Lista de cursos cadastrados</span></div>
+        <ul id="lista" class="lista"><li>Carregando...</li></ul>
+      </section>
+    </div>
+  </main>
 
   <script type="module">
     import "./api.js";
@@ -32,11 +60,13 @@
     const novo = document.getElementById("novo");
     const btnAdd = document.getElementById("btnAdd");
 
+    function e(valor) { return window.api.escapeHTML(valor || ""); }
+
     async function load() {
       const res = await window.api.getCursos();
       lista.innerHTML = "";
       if (!res.success) {
-        lista.innerHTML = `<li>${res.message || "Erro ao carregar cursos."}</li>`;
+        lista.innerHTML = `<li>${e(res.message || "Erro ao carregar cursos.")}</li>`;
         return;
       }
       if (!res.data.length) {
@@ -46,7 +76,7 @@
 
       res.data.forEach((c) => {
         const li = document.createElement("li");
-        li.innerHTML = `<span>${c.nome}</span> <button class="btn btn-del" data-id="${c.id}">Excluir</button>`;
+        li.innerHTML = `<span class="course-name">${e(c.nome)}</span> <button class="btn btn-del btn-sm" data-id="${e(c.id)}">Excluir</button>`;
         lista.appendChild(li);
       });
     }
@@ -65,9 +95,7 @@
     }
 
     btnAdd.addEventListener("click", add);
-    novo.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") add();
-    });
+    novo.addEventListener("keydown", (event) => { if (event.key === "Enter") add(); });
 
     lista.addEventListener("click", async (event) => {
       const botao = event.target.closest("button[data-id]");

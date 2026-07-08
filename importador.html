@@ -3,34 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#005a9c">
   <title>Importador CETEC para Firebase</title>
+  <link rel="icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-  <style>
-    body{font-family:Arial,sans-serif;background:#eef3f8;margin:0;padding:20px;color:#1f2937}
-    .box{max-width:900px;margin:0 auto;background:white;padding:24px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-    h1{margin-top:0;color:#005a9c} .alert{background:#fff3cd;border:1px solid #ffe08a;padding:12px;border-radius:8px;margin:12px 0}
-    .ok{background:#d1e7dd;border-color:#badbcc}.err{background:#f8d7da;border-color:#f5c2c7}
-    button{background:#005a9c;color:#fff;border:0;border-radius:8px;padding:12px 16px;font-weight:700;cursor:pointer;margin-top:12px}
-    button:disabled{background:#9ca3af;cursor:not-allowed} input{padding:12px;border:1px solid #cbd5e1;border-radius:8px;width:100%;box-sizing:border-box}
-    pre{background:#0f172a;color:#e5e7eb;border-radius:8px;padding:12px;white-space:pre-wrap;max-height:320px;overflow:auto}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}.card{background:#f8fafc;padding:14px;border-radius:10px;text-align:center}.num{font-size:30px;font-weight:800;color:#005a9c}
-  </style>
 </head>
-<body>
-  <div class="box">
-    <h1>Importador CETEC → Firebase</h1>
-    <p>Use este arquivo para enviar os dados do banco antigo SQLite para o Firestore do projeto <strong>cetec-3a52c</strong>.</p>
-    <div class="alert"><strong>Importante:</strong> selecione o arquivo <code>dados-cetec-firestore.json</code>. Não é necessário subir esse JSON no GitHub público.</div>
-    <input type="file" id="arquivo" accept=".json,application/json" />
-    <div class="grid">
-      <div class="card"><div class="num" id="qtdAlunos">0</div><div>alunos no arquivo</div></div>
-      <div class="card"><div class="num" id="qtdCursos">0</div><div>cursos no arquivo</div></div>
-      <div class="card"><div class="num" id="qtdPendencias">0</div><div>pendências marcadas</div></div>
+<body class="app-page">
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">CT</span>
+      <span class="brand-text"><strong>CETEC</strong><span>Importador Firebase</span></span>
+    </a>
+    <nav class="nav-pills">
+      <a href="index.html">🏠 Início</a>
+      <a href="consulta.html">🔎 Consulta</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <div class="container import-box">
+      <div class="header">
+        <div>
+          <h1>Importador CETEC → Firebase</h1>
+          <p class="subtitulo">Envie o arquivo JSON privado do banco antigo para o Firestore do projeto <strong>cetec-3a52c</strong>.</p>
+        </div>
+        <a href="index.html" class="btn-voltar">Menu</a>
+      </div>
+
+      <div class="alert"><strong>Importante:</strong> selecione o arquivo <code>dados-cetec-firestore.json</code>. Não suba esse JSON no GitHub público.</div>
+
+      <section class="form-section">
+        <h3 class="section-title">📁 Arquivo de importação</h3>
+        <input type="file" id="arquivo" accept=".json,application/json" />
+      </section>
+
+      <section class="summary-grid">
+        <div class="summary-card destaque"><span>Alunos no arquivo</span><strong id="qtdAlunos">0</strong></div>
+        <div class="summary-card"><span>Cursos no arquivo</span><strong id="qtdCursos">0</strong></div>
+        <div class="summary-card"><span>Pendências marcadas</span><strong id="qtdPendencias">0</strong></div>
+      </section>
+
+      <div class="btns no-print">
+        <a class="btn-cancelar" href="index.html">Cancelar</a>
+        <button id="btnImportar" class="btn-salvar" disabled>Importar para o Firebase</button>
+      </div>
+
+      <pre id="log" class="log-box">Selecione o JSON para começar.</pre>
     </div>
-    <button id="btnImportar" disabled>Importar para o Firebase</button>
-    <pre id="log">Selecione o JSON para começar.</pre>
-  </div>
+  </main>
 
 <script>
 const firebaseConfig = {
@@ -84,7 +107,7 @@ async function gravarEmLotes(itens, colecao, nome){
 document.getElementById('btnImportar').addEventListener('click', async ()=>{
   if(!dados) return;
   if(!confirm('Confirmar importação para o Firebase? Se já existir documento com o mesmo ID, ele será atualizado.')) return;
-  const btn = document.getElementById('btnImportar'); btn.disabled = true;
+  const btn = document.getElementById('btnImportar'); btn.disabled = true; btn.textContent = 'Importando...';
   try{
     log('Iniciando importação...');
     await gravarEmLotes(dados.cursos, 'cursos', 'Cursos');
@@ -93,7 +116,7 @@ document.getElementById('btnImportar').addEventListener('click', async ()=>{
   }catch(err){
     console.error(err); log('❌ Erro na importação: ' + err.message);
     alert('Erro na importação: ' + err.message);
-  }finally{ btn.disabled = false; }
+  }finally{ btn.disabled = false; btn.textContent = 'Importar para o Firebase'; }
 });
 </script>
 </body>

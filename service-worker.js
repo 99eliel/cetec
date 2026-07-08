@@ -1,4 +1,4 @@
-const CACHE_NAME = "cetec-matriculas-v2-filtros";
+const CACHE_NAME = "cetec-matriculas-v3-interface-profissional";
 const APP_FILES = [
   "./",
   "./index.html",
@@ -6,6 +6,7 @@ const APP_FILES = [
   "./matricula.html",
   "./consulta.html",
   "./cursos.html",
+  "./importador.html",
   "./style.css",
   "./api.js",
   "./firebase-config.js",

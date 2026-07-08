@@ -1,0 +1,11 @@
+ATENÇÃO
+
+Não suba no GitHub público arquivos com dados reais de alunos, como:
+- dados-cetec-firestore.json
+- alunos-conferencia.csv
+- pendencias-conferencia.csv
+- arquivos extraídos do banco cetec.db
+
+Esses arquivos podem conter CPF, telefone, endereço e outras informações pessoais.
+Use o importador.html apenas para selecionar o JSON localmente no seu computador e enviar para o Firebase.
+Depois da importação, você pode remover o importador.html do repositório se quiser mais segurança.

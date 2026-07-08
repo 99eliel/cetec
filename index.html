@@ -4,49 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#005a9c">
-  <title>CETEC - Menu</title>
+  <title>CETEC - Sistema de Matrículas</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="centralizado">
-  <div class="header-home">
-    <div class="logo-cetec">CT</div>
-    <h1>CETEC</h1>
-    <p>Sistema de Matrículas</p>
-    <a href="dashboard.html" class="header-link">Visualizar Dashboard 📈</a><br>
-    <button id="installButton" class="install-btn oculto">Instalar aplicativo</button>
-  </div>
+<body class="home-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Ir para o menu inicial">
+      <span class="brand-mark">CT</span>
+      <span class="brand-text"><strong>CETEC</strong><span>Sistema de Matrículas</span></span>
+    </a>
+    <nav class="nav-pills" aria-label="Navegação principal">
+      <a class="active" href="index.html">🏠 Início</a>
+      <a href="matricula.html">📝 Matrícula</a>
+      <a href="consulta.html">🔎 Consulta</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+    </nav>
+  </header>
 
-  <div class="container-menu">
-    <div class="card-menu" id="c-mat">
-      <span class="icon">📝</span>
-      <h2>Matrícula</h2>
-      <p>Novo aluno</p>
-      <button>Acessar</button>
-    </div>
+  <main class="home-shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-logo">CT</div>
+        <h1>Matrículas CETEC</h1>
+        <p>Controle alunos, cursos, status e contatos em um sistema online simples, rápido e instalável no celular.</p>
+        <div class="hero-actions">
+          <a class="btn btn-positivo" href="matricula.html">Nova matrícula</a>
+          <a class="btn btn-link" href="consulta.html">Consultar alunos</a>
+          <button id="installButton" class="install-btn oculto" type="button">Instalar aplicativo</button>
+        </div>
+      </div>
 
-    <div class="card-menu" id="c-con">
-      <span class="icon">🔍</span>
-      <h2>Consulta</h2>
-      <p>Buscar, chamar e editar</p>
-      <button>Acessar</button>
-    </div>
+      <aside class="side-card">
+        <div>
+          <h3>Fluxo recomendado</h3>
+          <p>Cadastre o aluno, acompanhe a fila e chame pelo WhatsApp diretamente na consulta.</p>
+        </div>
+        <div class="info-list">
+          <div class="info-item"><span>✅</span><div><strong>Sem login para uso rápido</strong><br><small>Ideal para operação interna simples.</small></div></div>
+          <div class="info-item"><span>📱</span><div><strong>Funciona como app</strong><br><small>Instale no celular ou acesse pelo PC.</small></div></div>
+          <div class="info-item"><span>🔥</span><div><strong>Dados no Firebase</strong><br><small>Consulta em tempo real pelo sistema online.</small></div></div>
+        </div>
+      </aside>
+    </section>
 
-    <div class="card-menu" id="c-cur">
-      <span class="icon">📚</span>
-      <h2>Cursos</h2>
-      <p>Gerenciar</p>
-      <button>Acessar</button>
-    </div>
-  </div>
+    <section class="container-menu" aria-label="Atalhos do sistema">
+      <div class="card-menu" id="c-mat" role="button" tabindex="0">
+        <span class="icon">📝</span>
+        <h2>Matrícula</h2>
+        <p>Cadastre novos alunos, selecione curso, turno e status inicial.</p>
+        <button type="button">Acessar matrícula</button>
+      </div>
+
+      <div class="card-menu" id="c-con" role="button" tabindex="0">
+        <span class="icon">🔍</span>
+        <h2>Consulta</h2>
+        <p>Pesquise, filtre, edite, gere ficha e chame o aluno pelo WhatsApp.</p>
+        <button type="button">Abrir consulta</button>
+      </div>
+
+      <div class="card-menu" id="c-cur" role="button" tabindex="0">
+        <span class="icon">📚</span>
+        <h2>Cursos</h2>
+        <p>Gerencie a lista de cursos usados nos formulários e relatórios.</p>
+        <button type="button">Gerenciar cursos</button>
+      </div>
+    </section>
+  </main>
 
   <script type="module">
     import "./pwa.js";
-
-    document.getElementById("c-mat").onclick = () => window.location.href = "matricula.html";
-    document.getElementById("c-con").onclick = () => window.location.href = "consulta.html";
-    document.getElementById("c-cur").onclick = () => window.location.href = "cursos.html";
+    const ir = (id, url) => {
+      const el = document.getElementById(id);
+      el.onclick = () => window.location.href = url;
+      el.onkeydown = (event) => { if (event.key === "Enter") window.location.href = url; };
+    };
+    ir("c-mat", "matricula.html");
+    ir("c-con", "consulta.html");
+    ir("c-cur", "cursos.html");
   </script>
 </body>
 </html>
