@@ -2,7 +2,7 @@
 // Camada de comunicação do sistema CETEC com o Cloud Firestore.
 // Mantém o contrato window.api usado pelas telas e centraliza validações, filtros e relatórios.
 
-import { db } from "./firebase-config.js";
+import { db } from "./firebase-config.js?v=20260708-final-4";
 import {
   addDoc,
   collection,

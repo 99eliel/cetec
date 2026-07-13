@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#005a9c">
   <title>CETEC - Sistema de Matrículas</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon-192.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json?v=20260713-pc-install-1">
+  <link rel="icon" href="icon-192.png?v=20260713-pc-install-1">
+  <link rel="stylesheet" href="style.css?v=20260713-pc-install-1">
 </head>
 <body class="home-page">
   <header class="topbar">
@@ -32,7 +32,7 @@
         <div class="hero-actions">
           <a class="btn btn-positivo" href="matricula.html">Nova matrícula</a>
           <a class="btn btn-link" href="consulta.html">Consultar alunos</a>
-          <button id="installButton" class="install-btn oculto" type="button">Instalar aplicativo</button>
+          <button id="installButton" data-install-button="true" class="install-btn" type="button">💻 Instalar aplicativo</button>
         </div>
       </div>
 
@@ -74,7 +74,7 @@
   </main>
 
   <script type="module">
-    import "./pwa.js";
+    import "./pwa.js?v=20260713-pc-install-1";
     const ir = (id, url) => {
       const el = document.getElementById(id);
       el.onclick = () => window.location.href = url;

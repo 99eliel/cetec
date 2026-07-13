@@ -1,4 +1,5 @@
-const CACHE_NAME = "cetec-matriculas-v3-interface-profissional";
+// service-worker.js
+const CACHE_NAME = "cetec-matriculas-20260713-pc-install-1";
 const APP_FILES = [
   "./",
   "./index.html",
@@ -6,7 +7,6 @@ const APP_FILES = [
   "./matricula.html",
   "./consulta.html",
   "./cursos.html",
-  "./importador.html",
   "./style.css",
   "./api.js",
   "./firebase-config.js",
@@ -18,22 +18,32 @@ const APP_FILES = [
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_FILES)));
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_FILES).catch(() => null)));
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
+      Promise.all(keys.map((key) => key !== CACHE_NAME ? caches.delete(key) : null))
     )
   );
   self.clients.claim();
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") self.skipWaiting();
 });
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request).then((cached) => cached || caches.match("./index.html")))
+    fetch(event.request)
+      .then((response) => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy)).catch(() => null);
+        return response;
+      })
+      .catch(() => caches.match(event.request).then((cached) => cached || caches.match("./index.html")))
   );
 });
